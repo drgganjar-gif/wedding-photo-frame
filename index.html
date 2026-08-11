@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
 <meta charset="UTF-8">
@@ -7,6 +8,7 @@
 <title>Ganjar & Puteri | 31.08.2026</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -33,236 +35,77 @@ h1 {
   letter-spacing: 1px;
 }
 
+
+/* =========================
+   CAMERA BOX
+========================= */
+
 .camera-box {
   position: relative;
+
   width: 100%;
   max-width: 420px;
+
   aspect-ratio: 9 / 16;
+
   margin: auto;
+
   background: #111;
+
   overflow: hidden;
+
   border-radius: 18px;
-  box-shadow: 0 8px 28px rgba(60, 30, 70, 0.25);
+
+  box-shadow:
+    0 8px 28px rgba(60, 30, 70, 0.25);
 }
+
+
+/* =========================
+   CAMERA
+========================= */
 
 #camera {
+  position: absolute;
+
+  inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
+  z-index: 1;
 }
 
+
 /* =========================
-   FLORAL FRAME
+   CANVA FRAME
 ========================= */
 
-.frame {
+#frameOverlay {
   position: absolute;
+
   inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
 
-/* Border */
-
-.frame::after {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border: 2px solid rgba(255,255,255,0.85);
-  border-radius: 14px;
-  box-shadow:
-    inset 0 0 0 1px rgba(117,62,139,0.55);
-}
-
-/* =========================
-   FLORAL TOP LEFT
-========================= */
-
-.flower-tl {
-  position: absolute;
-  top: -25px;
-  left: -25px;
-  width: 170px;
-  height: 170px;
-}
-
-.flower-tl::before {
-  content: "🌸💜🌿💐";
-  position: absolute;
-  font-size: 45px;
-  line-height: 1.05;
-  transform: rotate(-18deg);
-  filter: saturate(1.4);
-}
-
-/* =========================
-   FLORAL TOP RIGHT
-========================= */
-
-.flower-tr {
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 180px;
-  height: 180px;
-}
-
-.flower-tr::before {
-  content: "💜🌸💐🌿";
-  position: absolute;
-  right: 0;
-  font-size: 44px;
-  line-height: 1.05;
-  transform: rotate(18deg);
-  filter: saturate(1.4);
-}
-
-/* =========================
-   FLORAL BOTTOM LEFT
-========================= */
-
-.flower-bl {
-  position: absolute;
-  bottom: -25px;
-  left: -25px;
-  width: 190px;
-  height: 190px;
-}
-
-.flower-bl::before {
-  content: "🌿💐💜🌸";
-  position: absolute;
-  bottom: 0;
-  font-size: 46px;
-  line-height: 1.05;
-  transform: rotate(12deg);
-  filter: saturate(1.4);
-}
-
-/* =========================
-   FLORAL BOTTOM RIGHT
-========================= */
-
-.flower-br {
-  position: absolute;
-  bottom: -25px;
-  right: -25px;
-  width: 190px;
-  height: 190px;
-}
-
-.flower-br::before {
-  content: "🌸💜💐🌿";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  font-size: 46px;
-  line-height: 1.05;
-  transform: rotate(-12deg);
-  filter: saturate(1.4);
-}
-
-/* =========================
-   EXTRA FLOWERS
-========================= */
-
-.extra {
-  position: absolute;
-  font-size: 25px;
-  opacity: 0.9;
-}
-
-.e1 {
-  top: 110px;
-  left: 8px;
-}
-
-.e2 {
-  top: 145px;
-  right: 8px;
-}
-
-.e3 {
-  bottom: 145px;
-  left: 8px;
-}
-
-.e4 {
-  bottom: 110px;
-  right: 8px;
-}
-
-/* =========================
-   TEXT
-========================= */
-
-.wedding-text {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 38px;
-
-  padding: 55px 20px 30px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      rgba(255,255,255,0.15) 15%,
-      rgba(255,255,255,0.88) 55%,
-      rgba(255,255,255,0.94)
-    );
-}
-
-.wedding {
-  font-size: 11px;
-  letter-spacing: 4px;
-  margin-bottom: 8px;
-}
-
-.names {
-  font-size: 31px;
-  letter-spacing: 1px;
-  color: #573365;
-  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
-}
-
-.date {
-  margin-top: 8px;
-  font-size: 14px;
-  letter-spacing: 4px;
-  color: #684575;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-button {
   width: 100%;
-  max-width: 420px;
-  margin: 12px auto 0;
-  padding: 14px;
-  border: none;
-  border-radius: 11px;
+  height: 100%;
 
-  background: #684575;
-  color: white;
+  object-fit: fill;
 
-  font-size: 15px;
-  cursor: pointer;
+  z-index: 10;
 
-  box-shadow: 0 4px 12px rgba(80,40,90,0.2);
+  pointer-events: none;
 }
 
-button:active {
-  transform: scale(0.98);
-}
 
-/* switch camera */
+/* =========================
+   SWITCH CAMERA
+========================= */
 
 #switchCamera {
   position: absolute;
+
   top: 24px;
   right: 24px;
 
@@ -273,14 +116,23 @@ button:active {
 
   margin: 0;
   padding: 0;
+
+  border: none;
   border-radius: 50%;
 
   background: rgba(65,35,75,0.65);
 
+  color: white;
+
   font-size: 20px;
+
+  cursor: pointer;
 }
 
-/* countdown */
+
+/* =========================
+   COUNTDOWN
+========================= */
 
 #countdown {
   position: absolute;
@@ -288,40 +140,96 @@ button:active {
   top: 50%;
   left: 50%;
 
-  transform: translate(-50%, -50%);
+  transform:
+    translate(-50%, -50%);
 
   z-index: 30;
 
   font-size: 90px;
+
   font-weight: bold;
 
   color: white;
 
-  text-shadow: 0 3px 15px #3b1748;
+  text-shadow:
+    0 3px 15px #3b1748;
 
   display: none;
 }
 
-/* result */
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+  width: 100%;
+  max-width: 420px;
+
+  margin: 12px auto 0;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #684575;
+
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 12px rgba(80,40,90,0.2);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================
+   RESULT
+========================= */
 
 #result {
   display: none;
+
   width: 100%;
   max-width: 420px;
+
   margin: 20px auto;
 }
 
 #result img {
   width: 100%;
+
   border-radius: 16px;
-  box-shadow: 0 6px 22px rgba(60,30,70,0.22);
+
+  box-shadow:
+    0 6px 22px rgba(60,30,70,0.22);
 }
+
+
+/* =========================
+   CANVAS
+========================= */
+
+#canvas {
+  display: none;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<h1>Wedding Photo</h1>
+<h1>
+Wedding Photo
+</h1>
 
 <div class="subtitle">
 Ganjar & Puteri • 31.08.2026
@@ -329,51 +237,50 @@ Ganjar & Puteri • 31.08.2026
 
 <div class="camera-box">
 
-  <video id="camera" autoplay playsinline></video>
+  <!-- CAMERA -->
 
-  <button id="switchCamera">🔄</button>
+<video
+ id="camera"
+ autoplay
+ playsinline> </video>
+
+  <!-- CANVA FRAME -->
+
+<img
+ id="frameOverlay"
+ src="frame01.png"
+ alt="Wedding Frame">
+
+  <!-- SWITCH CAMERA -->
+
+<button
+ id="switchCamera">
+
+```
+🔄
+```
+
+  </button>
+
+  <!-- COUNTDOWN -->
 
   <div id="countdown"></div>
 
-  <div class="frame">
-
-    <div class="flower-tl"></div>
-    <div class="flower-tr"></div>
-    <div class="flower-bl"></div>
-    <div class="flower-br"></div>
-
-    <div class="extra e1">💜🌿</div>
-    <div class="extra e2">🌸💜</div>
-    <div class="extra e3">💐🌿</div>
-    <div class="extra e4">💜🌸</div>
-
-    <div class="wedding-text">
-
-      <div class="wedding">
-        THE WEDDING OF
-      </div>
-
-      <div class="names">
-        Ganjar & Puteri
-      </div>
-
-      <div class="date">
-        31 • 08 • 2026
-      </div>
-
-    </div>
-
-  </div>
-
 </div>
+
+<!-- TAKE PHOTO -->
 
 <button id="takePhoto">
 📸 AMBIL FOTO
 </button>
 
+<!-- RESULT -->
+
 <div id="result">
 
-  <img id="photoResult">
+<img
+ id="photoResult"
+ alt="Hasil foto">
 
   <button id="download">
     ⬇️ DOWNLOAD FOTO
@@ -385,41 +292,57 @@ Ganjar & Puteri • 31.08.2026
 
 </div>
 
-<canvas id="canvas" style="display:none;"></canvas>
+<!-- CANVAS -->
+
+<canvas id="canvas"></canvas>
 
 <script>
 
+
+/* =========================
+   ELEMENT
+========================= */
+
 const video =
-document.getElementById("camera");
+  document.getElementById("camera");
 
 const takePhoto =
-document.getElementById("takePhoto");
+  document.getElementById("takePhoto");
 
 const switchCamera =
-document.getElementById("switchCamera");
+  document.getElementById("switchCamera");
 
 const countdown =
-document.getElementById("countdown");
+  document.getElementById("countdown");
 
 const canvas =
-document.getElementById("canvas");
+  document.getElementById("canvas");
 
 const result =
-document.getElementById("result");
+  document.getElementById("result");
 
 const photoResult =
-document.getElementById("photoResult");
+  document.getElementById("photoResult");
 
 const download =
-document.getElementById("download");
+  document.getElementById("download");
 
 const retake =
-document.getElementById("retake");
+  document.getElementById("retake");
 
-let stream;
+
+/* =========================
+   CAMERA STATE
+========================= */
+
+let stream = null;
 
 let facingMode = "user";
 
+
+/* =========================
+   START CAMERA
+========================= */
 
 async function startCamera() {
 
@@ -428,12 +351,13 @@ async function startCamera() {
     if (stream) {
 
       stream
-      .getTracks()
-      .forEach(
-        track => track.stop()
-      );
+        .getTracks()
+        .forEach(
+          track => track.stop()
+        );
 
     }
+
 
     stream =
       await navigator.mediaDevices.getUserMedia({
@@ -446,11 +370,15 @@ async function startCamera() {
 
       });
 
-    video.srcObject = stream;
+
+    video.srcObject =
+      stream;
 
   }
 
   catch(error) {
+
+    console.error(error);
 
     alert(
       "Kamera tidak dapat digunakan. Silakan izinkan akses kamera."
@@ -461,24 +389,36 @@ async function startCamera() {
 }
 
 
+/* =========================
+   PAGE LOAD
+========================= */
+
 window.addEventListener(
   "load",
   startCamera
 );
 
 
+/* =========================
+   SWITCH CAMERA
+========================= */
+
 switchCamera.onclick =
 async function() {
 
   facingMode =
     facingMode === "user"
-    ? "environment"
-    : "user";
+      ? "environment"
+      : "user";
 
   await startCamera();
 
 };
 
+
+/* =========================
+   TAKE PHOTO
+========================= */
 
 takePhoto.onclick =
 function() {
@@ -491,10 +431,12 @@ function() {
   countdown.innerText =
     number;
 
+
   const timer =
     setInterval(function() {
 
       number--;
+
 
       if(number > 0) {
 
@@ -510,6 +452,7 @@ function() {
         countdown.innerText =
           "📸";
 
+
         setTimeout(
           capturePhoto,
           300
@@ -522,170 +465,171 @@ function() {
 };
 
 
+/* =========================
+   CAPTURE PHOTO
+========================= */
+
 function capturePhoto() {
 
   countdown.style.display =
     "none";
 
+
   const width = 1080;
   const height = 1920;
 
-  canvas.width = width;
-  canvas.height = height;
+
+  canvas.width =
+    width;
+
+  canvas.height =
+    height;
+
 
   const ctx =
     canvas.getContext("2d");
 
+
+  /* =========================
+     DRAW CAMERA
+  ========================= */
+
   const scale =
     Math.max(
-      width / video.videoWidth,
-      height / video.videoHeight
+
+      width /
+        video.videoWidth,
+
+      height /
+        video.videoHeight
+
     );
+
 
   const newWidth =
-    video.videoWidth * scale;
+    video.videoWidth *
+    scale;
+
 
   const newHeight =
-    video.videoHeight * scale;
+    video.videoHeight *
+    scale;
+
 
   const x =
-    (width - newWidth) / 2;
+    (width -
+      newWidth) / 2;
+
 
   const y =
-    (height - newHeight) / 2;
+    (height -
+      newHeight) / 2;
+
 
   ctx.drawImage(
+
     video,
+
     x,
     y,
+
     newWidth,
     newHeight
+
   );
 
 
-  /* GRADIENT */
+  /* =========================
+     DRAW CANVA FRAME
+  ========================= */
 
-  const gradient =
-    ctx.createLinearGradient(
+  const frame =
+    new Image();
+
+
+  frame.onload =
+  function() {
+
+    ctx.drawImage(
+
+      frame,
+
       0,
-      1200,
       0,
-      1920
+
+      width,
+      height
+
     );
 
-  gradient.addColorStop(
-    0,
-    "rgba(255,255,255,0)"
-  );
-  gradient.addColorStop(
-    1,
-    "rgba(255,255,255,0.92)"
-  );
 
-  ctx.fillStyle =
-    gradient;
+    finishPhoto();
 
-  ctx.fillRect(
-    0,
-    1050,
-    width,
-    870
-  );
+  };
 
 
-  /* TEXT */
+  frame.onerror =
+  function() {
 
-  ctx.fillStyle =
-    "#573365";
+    alert(
+      "Frame Canva tidak ditemukan. Pastikan file bernama frame01.png dan berada satu folder dengan index.html."
+    );
 
-  ctx.textAlign =
-    "center";
-
-  ctx.font =
-    "24px Georgia";
-
-  ctx.fillText(
-    "THE WEDDING OF",
-    540,
-    1635
-  );
-
-  ctx.font =
-    "52px Georgia";
-
-  ctx.fillText(
-    "Ganjar & Puteri",
-    540,
-    1710
-  );
-
-  ctx.font =
-    "25px Georgia";
-
-  ctx.fillText(
-    "31 • 08 • 2026",
-    540,
-    1765
-  );
+  };
 
 
-  /* SIMPLE FLORAL DECOR */
+  frame.src =
+    "frame01.png";
 
-  ctx.font = "65px serif";
+}
 
-  ctx.fillText(
-    "💜",
-    100,
-    120
-  );
 
-  ctx.fillText(
-    "🌸",
-    970,
-    120
-  );
+/* =========================
+   FINISH PHOTO
+========================= */
 
-  ctx.fillText(
-    "💐",
-    100,
-    1820
-  );
-
-  ctx.fillText(
-    "🌸",
-    970,
-    1820
-  );
-
+function finishPhoto() {
 
   const image =
     canvas.toDataURL(
+
       "image/jpeg",
+
       0.95
+
     );
+
 
   photoResult.src =
     image;
 
+
   result.style.display =
     "block";
+
 
   takePhoto.style.display =
     "none";
 
 
+  /* STOP CAMERA */
+
   if(stream) {
 
     stream
-    .getTracks()
-    .forEach(
-      track => track.stop()
-    );
+      .getTracks()
+      .forEach(
+        track => track.stop()
+      );
 
   }
 
 }
 
+
+/* =========================
+   DOWNLOAD
+========================= */
 
 download.onclick =
 function() {
@@ -693,16 +637,23 @@ function() {
   const link =
     document.createElement("a");
 
+
   link.download =
     "Ganjar-Puteri-31082026.jpg";
 
+
   link.href =
     photoResult.src;
+
 
   link.click();
 
 };
 
+
+/* =========================
+   RETAKE
+========================= */
 
 retake.onclick =
 async function() {
@@ -710,12 +661,15 @@ async function() {
   result.style.display =
     "none";
 
+
   takePhoto.style.display =
     "block";
+
 
   await startCamera();
 
 };
+
 
 </script>
 
