@@ -1,266 +1,535 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ganjar & Puteri | 31.08.2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>Ganjar & Puteri | 31.08.2026</title>
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: #f5f1eb;
-      font-family: Georgia, serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      color: #3d3935;
-    }
+<style>
 
-    .container {
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    h1 {
-      font-size: 26px;
-      margin-bottom: 8px;
-      letter-spacing: 2px;
-    }
+body {
+  margin: 0;
+  padding: 20px;
+  background: #f5f1eb;
+  font-family: Georgia, serif;
+  text-align: center;
+  color: #3d3935;
+}
 
-    .subtitle {
-      font-size: 14px;
-      margin-bottom: 25px;
-      letter-spacing: 1px;
-    }
+h1 {
+  margin: 5px 0;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
 
-    .photo-box {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 9 / 16;
-      background: white;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.12);
-    }
+.subtitle {
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
 
-    #photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: none;
-    }
+.camera-box {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 9 / 16;
+  margin: auto;
+  background: #000;
+  overflow: hidden;
+  border-radius: 14px;
+}
 
-    .frame {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      padding-bottom: 35px;
-      background: linear-gradient(
-        to bottom,
-        transparent 65%,
-        rgba(255,255,255,0.75)
-      );
-    }
+#camera {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .wedding {
-      font-size: 12px;
-      letter-spacing: 3px;
-      margin-bottom: 7px;
-    }
+.frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 
-    .names {
-      font-size: 29px;
-      font-weight: normal;
-      letter-spacing: 1px;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 
-    .date {
-      font-size: 14px;
-      letter-spacing: 3px;
-      margin-top: 8px;
-    }
+  padding-bottom: 35px;
 
-    .button,
-    .choose {
-      width: 100%;
-      border: none;
-      border-radius: 10px;
-      padding: 14px;
-      margin-top: 15px;
-      font-size: 15px;
-      cursor: pointer;
-      background: #3d3935;
-      color: white;
-    }
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 65%,
+      rgba(255,255,255,0.8)
+    );
+}
 
-    input {
-      display: none;
-    }
+.wedding {
+  font-size: 11px;
+  letter-spacing: 3px;
+}
 
-    .choose {
-      display: block;
-    }
+.names {
+  font-size: 29px;
+  margin-top: 7px;
+}
 
-    #download {
-      display: none;
-    }
-  </style>
+.date {
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin-top: 7px;
+}
+
+button {
+  width: 100%;
+  max-width: 420px;
+  margin: 15px auto 0;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+
+  background: #3d3935;
+  color: white;
+
+  font-size: 16px;
+}
+
+#countdown {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  font-size: 90px;
+  font-weight: bold;
+
+  color: white;
+
+  text-shadow:
+    0 3px 10px black;
+
+  display: none;
+
+  z-index: 10;
+}
+
+#result {
+  display: none;
+
+  width: 100%;
+  max-width: 420px;
+
+  margin: 20px auto;
+}
+
+#result img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<h1>Wedding Photo</h1>
 
-    <h1>Wedding Photo</h1>
+<div class="subtitle">
+Ganjar & Puteri • 31.08.2026
+</div>
 
-    <div class="subtitle">
-      Ganjar & Puteri • 31.08.2026
+<div class="camera-box">
+
+  <video
+    id="camera"
+    autoplay
+    playsinline>
+  </video>
+
+  <div id="countdown"></div>
+
+  <div class="frame">
+
+    <div class="wedding">
+      THE WEDDING OF
     </div>
 
-    <div class="photo-box">
-
-      <img id="photo" alt="Foto wedding">
-
-      <div class="frame">
-        <div class="wedding">THE WEDDING OF</div>
-        <div class="names">Ganjar & Puteri</div>
-        <div class="date">31.08.2026</div>
-      </div>
-
+    <div class="names">
+      Ganjar & Puteri
     </div>
 
-    <label class="choose" for="upload">
-      📷 Pilih Foto
-    </label>
-
-    <input
-      type="file"
-      id="upload"
-      accept="image/*"
-    >
-
-    <button
-      class="button"
-      id="download"
-      onclick="downloadPhoto()"
-    >
-      ⬇️ Download Foto
-    </button>
+    <div class="date">
+      31 • 08 • 2026
+    </div>
 
   </div>
 
+</div>
+
+<button id="startCamera">
+📸 BUKA KAMERA
+</button>
+
+<button id="takePhoto" style="display:none;">
+🔴 AMBIL FOTO
+</button>
+
+<div id="result">
+
+  <img id="photoResult">
+
+  <button id="download">
+    ⬇️ DOWNLOAD FOTO
+  </button>
+
+  <button id="retake">
+    🔄 FOTO ULANG
+  </button>
+
+</div>
+
+<canvas id="canvas" style="display:none;"></canvas>
+
+
 <script>
 
-const upload = document.getElementById("upload");
-const photo = document.getElementById("photo");
-const download = document.getElementById("download");
+const video =
+document.getElementById("camera");
 
-upload.addEventListener("change", function(event) {
+const startCamera =
+document.getElementById("startCamera");
 
-  const file = event.target.files[0];
+const takePhoto =
+document.getElementById("takePhoto");
 
-  if (!file) return;
+const countdown =
+document.getElementById("countdown");
 
-  const reader = new FileReader();
+const canvas =
+document.getElementById("canvas");
 
-  reader.onload = function(e) {
+const result =
+document.getElementById("result");
 
-    photo.src = e.target.result;
-    photo.style.display = "block";
-    download.style.display = "block";
+const photoResult =
+document.getElementById("photoResult");
 
-  };
+const download =
+document.getElementById("download");
 
-  reader.readAsDataURL(file);
+const retake =
+document.getElementById("retake");
 
-});
+let stream;
 
 
-function downloadPhoto() {
+// =========================
+// BUKA KAMERA
+// =========================
 
-  const canvas = document.createElement("canvas");
+startCamera.onclick = async function() {
 
-  canvas.width = 1080;
-  canvas.height = 1920;
+  try {
 
-  const ctx = canvas.getContext("2d");
+    stream =
+      await navigator.mediaDevices.getUserMedia({
 
-  const img = new Image();
+        video: {
+          facingMode: "user"
+        },
 
-  img.onload = function() {
+        audio: false
 
-    const scale = Math.max(
-      canvas.width / img.width,
-      canvas.height / img.height
+      });
+
+    video.srcObject = stream;
+
+    startCamera.style.display = "none";
+
+    takePhoto.style.display = "block";
+
+  }
+
+  catch(error) {
+
+    alert(
+      "Kamera tidak bisa digunakan. Pastikan izin kamera diberikan kepada browser."
     );
 
-    const width = img.width * scale;
-    const height = img.height * scale;
+  }
 
-    const x = (canvas.width - width) / 2;
-    const y = (canvas.height - height) / 2;
+};
 
-    ctx.drawImage(img, x, y, width, height);
 
-    const gradient = ctx.createLinearGradient(
+// =========================
+// AMBIL FOTO
+// =========================
+
+takePhoto.onclick = function() {
+
+  let number = 3;
+
+  countdown.style.display = "block";
+
+  countdown.innerText = number;
+
+  const timer =
+    setInterval(function() {
+
+      number--;
+
+      if(number > 0) {
+
+        countdown.innerText =
+          number;
+
+      }
+
+      else {
+
+        clearInterval(timer);
+
+        countdown.innerText =
+          "📸";
+       setTimeout(
+          capturePhoto,
+          300
+        );
+
+      }
+
+    }, 1000);
+
+};
+
+
+// =========================
+// CAPTURE
+// =========================
+
+function capturePhoto() {
+
+  countdown.style.display =
+    "none";
+
+  const width =
+    1080;
+
+  const height =
+    1920;
+
+  canvas.width =
+    width;
+
+  canvas.height =
+    height;
+
+  const ctx =
+    canvas.getContext("2d");
+
+
+  // FOTO
+
+  const scale =
+    Math.max(
+      width / video.videoWidth,
+      height / video.videoHeight
+    );
+
+  const newWidth =
+    video.videoWidth * scale;
+
+  const newHeight =
+    video.videoHeight * scale;
+
+  const x =
+    (width - newWidth) / 2;
+
+  const y =
+    (height - newHeight) / 2;
+
+
+  ctx.drawImage(
+    video,
+    x,
+    y,
+    newWidth,
+    newHeight
+  );
+
+
+  // GRADIENT
+
+  const gradient =
+    ctx.createLinearGradient(
       0,
       1250,
       0,
       1920
     );
 
-    gradient.addColorStop(0, "rgba(255,255,255,0)");
-    gradient.addColorStop(1, "rgba(255,255,255,0.85)");
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 1100, 1080, 820);
+  gradient.addColorStop(
+    0,
+    "rgba(255,255,255,0)"
+  );
 
-    ctx.fillStyle = "#3d3935";
-    ctx.textAlign = "center";
+  gradient.addColorStop(
+    1,
+    "rgba(255,255,255,0.85)"
+  );
 
-    ctx.font = "24px Georgia";
-    ctx.fillText(
-      "THE WEDDING OF",
-      540,
-      1650
+  ctx.fillStyle =
+    gradient;
+
+  ctx.fillRect(
+    0,
+    1100,
+    width,
+    820
+  );
+
+
+  // TEXT
+
+  ctx.fillStyle =
+    "#3d3935";
+
+  ctx.textAlign =
+    "center";
+
+
+  ctx.font =
+    "24px Georgia";
+
+  ctx.fillText(
+    "THE WEDDING OF",
+    540,
+    1650
+  );
+
+
+  ctx.font =
+    "52px Georgia";
+
+  ctx.fillText(
+    "Ganjar & Puteri",
+    540,
+    1720
+  );
+
+
+  ctx.font =
+    "25px Georgia";
+
+  ctx.fillText(
+    "31 • 08 • 2026",
+    540,
+    1775
+  );
+
+
+  const image =
+    canvas.toDataURL(
+      "image/jpeg",
+      0.95
     );
 
-    ctx.font = "48px Georgia";
-    ctx.fillText(
-      "Ganjar & Puteri",
-      540,
-      1720
-    );
 
-    ctx.font = "24px Georgia";
-    ctx.fillText(
-      "31.08.2026",
-      540,
-      1770
-    );
+  photoResult.src =
+    image;
 
-    const link = document.createElement("a");
+  result.style.display =
+    "block";
 
-    link.download = "Ganjar-Puteri-31082026.jpg";
-    link.href = canvas.toDataURL("image/jpeg", 0.95);
+  takePhoto.style.display =
+    "none";
 
-    link.click();
 
-  };
+  // Matikan kamera
 
-  img.src = photo.src;
+  if(stream) {
+
+    stream
+      .getTracks()
+      .forEach(
+        track =>
+          track.stop()
+      );
+
+  }
 
 }
+
+
+// =========================
+// DOWNLOAD
+// =========================
+
+download.onclick =
+function() {
+
+  const link =
+    document.createElement("a");
+
+  link.download =
+    "Ganjar-Puteri-31082026.jpg";
+
+  link.href =
+    photoResult.src;
+
+  link.click();
+
+};
+
+
+// =========================
+// FOTO ULANG
+// =========================
+
+retake.onclick =
+async function() {
+
+  result.style.display =
+    "none";
+
+  try {
+
+    stream =
+      await navigator.mediaDevices
+      .getUserMedia({
+
+        video: {
+          facingMode: "user"
+        },
+
+        audio: false
+
+      });
+
+    video.srcObject =
+      stream;
+
+    takePhoto.style.display =
+      "block";
+
+  }
+
+  catch(error) {
+
+    alert(
+      "Tidak bisa membuka kamera."
+    );
+
+  }
+
+};
 
 </script>
 
