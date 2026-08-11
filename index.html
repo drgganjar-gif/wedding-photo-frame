@@ -7,18 +7,18 @@
 <title>Ganjar & Puteri | 31.08.2026</title>
 
 <style>
-
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  padding: 20px;
-  background: #f5f1eb;
+  padding: 18px;
+  min-height: 100vh;
+  background: #f3edf5;
   font-family: Georgia, serif;
   text-align: center;
-  color: #3d3935;
+  color: #382d3d;
 }
 
 h1 {
@@ -28,7 +28,8 @@ h1 {
 }
 
 .subtitle {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  font-size: 14px;
   letter-spacing: 1px;
 }
 
@@ -38,9 +39,10 @@ h1 {
   max-width: 420px;
   aspect-ratio: 9 / 16;
   margin: auto;
-  background: #000;
+  background: #111;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(60, 30, 70, 0.25);
 }
 
 #camera {
@@ -49,55 +51,236 @@ h1 {
   object-fit: cover;
 }
 
+/* =========================
+   FLORAL FRAME
+========================= */
+
 .frame {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  overflow: hidden;
+}
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+/* Border */
 
-  padding-bottom: 35px;
+.frame::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 2px solid rgba(255,255,255,0.85);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 0 0 1px rgba(117,62,139,0.55);
+}
+
+/* =========================
+   FLORAL TOP LEFT
+========================= */
+
+.flower-tl {
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  width: 170px;
+  height: 170px;
+}
+
+.flower-tl::before {
+  content: "🌸💜🌿💐";
+  position: absolute;
+  font-size: 45px;
+  line-height: 1.05;
+  transform: rotate(-18deg);
+  filter: saturate(1.4);
+}
+
+/* =========================
+   FLORAL TOP RIGHT
+========================= */
+
+.flower-tr {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 180px;
+  height: 180px;
+}
+
+.flower-tr::before {
+  content: "💜🌸💐🌿";
+  position: absolute;
+  right: 0;
+  font-size: 44px;
+  line-height: 1.05;
+  transform: rotate(18deg);
+  filter: saturate(1.4);
+}
+
+/* =========================
+   FLORAL BOTTOM LEFT
+========================= */
+
+.flower-bl {
+  position: absolute;
+  bottom: -25px;
+  left: -25px;
+  width: 190px;
+  height: 190px;
+}
+
+.flower-bl::before {
+  content: "🌿💐💜🌸";
+  position: absolute;
+  bottom: 0;
+  font-size: 46px;
+  line-height: 1.05;
+  transform: rotate(12deg);
+  filter: saturate(1.4);
+}
+
+/* =========================
+   FLORAL BOTTOM RIGHT
+========================= */
+
+.flower-br {
+  position: absolute;
+  bottom: -25px;
+  right: -25px;
+  width: 190px;
+  height: 190px;
+}
+
+.flower-br::before {
+  content: "🌸💜💐🌿";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 46px;
+  line-height: 1.05;
+  transform: rotate(-12deg);
+  filter: saturate(1.4);
+}
+
+/* =========================
+   EXTRA FLOWERS
+========================= */
+
+.extra {
+  position: absolute;
+  font-size: 25px;
+  opacity: 0.9;
+}
+
+.e1 {
+  top: 110px;
+  left: 8px;
+}
+
+.e2 {
+  top: 145px;
+  right: 8px;
+}
+
+.e3 {
+  bottom: 145px;
+  left: 8px;
+}
+
+.e4 {
+  bottom: 110px;
+  right: 8px;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.wedding-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 38px;
+
+  padding: 55px 20px 30px;
 
   background:
     linear-gradient(
       to bottom,
-      transparent 65%,
-      rgba(255,255,255,0.8)
+      transparent,
+      rgba(255,255,255,0.15) 15%,
+      rgba(255,255,255,0.88) 55%,
+      rgba(255,255,255,0.94)
     );
 }
 
 .wedding {
   font-size: 11px;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
 }
 
 .names {
-  font-size: 29px;
-  margin-top: 7px;
+  font-size: 31px;
+  letter-spacing: 1px;
+  color: #573365;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
 }
 
 .date {
+  margin-top: 8px;
   font-size: 14px;
-  letter-spacing: 3px;
-  margin-top: 7px;
+  letter-spacing: 4px;
+  color: #684575;
 }
+
+/* =========================
+   BUTTONS
+========================= */
 
 button {
   width: 100%;
   max-width: 420px;
-  margin: 15px auto 0;
-  padding: 15px;
+  margin: 12px auto 0;
+  padding: 14px;
   border: none;
-  border-radius: 10px;
+  border-radius: 11px;
 
-  background: #3d3935;
+  background: #684575;
   color: white;
 
-  font-size: 16px;
+  font-size: 15px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(80,40,90,0.2);
 }
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* switch camera */
+
+#switchCamera {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  z-index: 20;
+
+  width: 46px;
+  height: 46px;
+
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+
+  background: rgba(65,35,75,0.65);
+
+  font-size: 20px;
+}
+
+/* countdown */
 
 #countdown {
   position: absolute;
@@ -107,33 +290,32 @@ button {
 
   transform: translate(-50%, -50%);
 
+  z-index: 30;
+
   font-size: 90px;
   font-weight: bold;
 
   color: white;
 
-  text-shadow:
-    0 3px 10px black;
+  text-shadow: 0 3px 15px #3b1748;
 
   display: none;
-
-  z-index: 10;
 }
+
+/* result */
 
 #result {
   display: none;
-
   width: 100%;
   max-width: 420px;
-
   margin: 20px auto;
 }
 
 #result img {
   width: 100%;
-  border-radius: 14px;
+  border-radius: 16px;
+  box-shadow: 0 6px 22px rgba(60,30,70,0.22);
 }
-
 </style>
 </head>
 
@@ -147,38 +329,46 @@ Ganjar & Puteri • 31.08.2026
 
 <div class="camera-box">
 
-  <video
-    id="camera"
-    autoplay
-    playsinline>
-  </video>
+  <video id="camera" autoplay playsinline></video>
+
+  <button id="switchCamera">🔄</button>
 
   <div id="countdown"></div>
 
   <div class="frame">
 
-    <div class="wedding">
-      THE WEDDING OF
-    </div>
+    <div class="flower-tl"></div>
+    <div class="flower-tr"></div>
+    <div class="flower-bl"></div>
+    <div class="flower-br"></div>
 
-    <div class="names">
-      Ganjar & Puteri
-    </div>
+    <div class="extra e1">💜🌿</div>
+    <div class="extra e2">🌸💜</div>
+    <div class="extra e3">💐🌿</div>
+    <div class="extra e4">💜🌸</div>
 
-    <div class="date">
-      31 • 08 • 2026
+    <div class="wedding-text">
+
+      <div class="wedding">
+        THE WEDDING OF
+      </div>
+
+      <div class="names">
+        Ganjar & Puteri
+      </div>
+
+      <div class="date">
+        31 • 08 • 2026
+      </div>
+
     </div>
 
   </div>
 
 </div>
 
-<button id="startCamera">
-📸 BUKA KAMERA
-</button>
-
-<button id="takePhoto" style="display:none;">
-🔴 AMBIL FOTO
+<button id="takePhoto">
+📸 AMBIL FOTO
 </button>
 
 <div id="result">
@@ -197,17 +387,16 @@ Ganjar & Puteri • 31.08.2026
 
 <canvas id="canvas" style="display:none;"></canvas>
 
-
 <script>
 
 const video =
 document.getElementById("camera");
 
-const startCamera =
-document.getElementById("startCamera");
-
 const takePhoto =
 document.getElementById("takePhoto");
+
+const switchCamera =
+document.getElementById("switchCamera");
 
 const countdown =
 document.getElementById("countdown");
@@ -229,20 +418,28 @@ document.getElementById("retake");
 
 let stream;
 
+let facingMode = "user";
 
-// =========================
-// BUKA KAMERA
-// =========================
 
-startCamera.onclick = async function() {
+async function startCamera() {
 
   try {
+
+    if (stream) {
+
+      stream
+      .getTracks()
+      .forEach(
+        track => track.stop()
+      );
+
+    }
 
     stream =
       await navigator.mediaDevices.getUserMedia({
 
         video: {
-          facingMode: "user"
+          facingMode: facingMode
         },
 
         audio: false
@@ -251,34 +448,48 @@ startCamera.onclick = async function() {
 
     video.srcObject = stream;
 
-    startCamera.style.display = "none";
-
-    takePhoto.style.display = "block";
-
   }
 
   catch(error) {
 
     alert(
-      "Kamera tidak bisa digunakan. Pastikan izin kamera diberikan kepada browser."
+      "Kamera tidak dapat digunakan. Silakan izinkan akses kamera."
     );
 
   }
 
+}
+
+
+window.addEventListener(
+  "load",
+  startCamera
+);
+
+
+switchCamera.onclick =
+async function() {
+
+  facingMode =
+    facingMode === "user"
+    ? "environment"
+    : "user";
+
+  await startCamera();
+
 };
 
 
-// =========================
-// AMBIL FOTO
-// =========================
-
-takePhoto.onclick = function() {
+takePhoto.onclick =
+function() {
 
   let number = 3;
 
-  countdown.style.display = "block";
+  countdown.style.display =
+    "block";
 
-  countdown.innerText = number;
+  countdown.innerText =
+    number;
 
   const timer =
     setInterval(function() {
@@ -298,7 +509,8 @@ takePhoto.onclick = function() {
 
         countdown.innerText =
           "📸";
-       setTimeout(
+
+        setTimeout(
           capturePhoto,
           300
         );
@@ -310,32 +522,19 @@ takePhoto.onclick = function() {
 };
 
 
-// =========================
-// CAPTURE
-// =========================
-
 function capturePhoto() {
 
   countdown.style.display =
     "none";
 
-  const width =
-    1080;
+  const width = 1080;
+  const height = 1920;
 
-  const height =
-    1920;
-
-  canvas.width =
-    width;
-
-  canvas.height =
-    height;
+  canvas.width = width;
+  canvas.height = height;
 
   const ctx =
     canvas.getContext("2d");
-
-
-  // FOTO
 
   const scale =
     Math.max(
@@ -355,7 +554,6 @@ function capturePhoto() {
   const y =
     (height - newHeight) / 2;
 
-
   ctx.drawImage(
     video,
     x,
@@ -365,12 +563,12 @@ function capturePhoto() {
   );
 
 
-  // GRADIENT
+  /* GRADIENT */
 
   const gradient =
     ctx.createLinearGradient(
       0,
-      1250,
+      1200,
       0,
       1920
     );
@@ -379,10 +577,9 @@ function capturePhoto() {
     0,
     "rgba(255,255,255,0)"
   );
-
   gradient.addColorStop(
     1,
-    "rgba(255,255,255,0.85)"
+    "rgba(255,255,255,0.92)"
   );
 
   ctx.fillStyle =
@@ -390,20 +587,19 @@ function capturePhoto() {
 
   ctx.fillRect(
     0,
-    1100,
+    1050,
     width,
-    820
+    870
   );
 
 
-  // TEXT
+  /* TEXT */
 
   ctx.fillStyle =
-    "#3d3935";
+    "#573365";
 
   ctx.textAlign =
     "center";
-
 
   ctx.font =
     "24px Georgia";
@@ -411,9 +607,8 @@ function capturePhoto() {
   ctx.fillText(
     "THE WEDDING OF",
     540,
-    1650
+    1635
   );
-
 
   ctx.font =
     "52px Georgia";
@@ -421,9 +616,8 @@ function capturePhoto() {
   ctx.fillText(
     "Ganjar & Puteri",
     540,
-    1720
+    1710
   );
-
 
   ctx.font =
     "25px Georgia";
@@ -431,7 +625,36 @@ function capturePhoto() {
   ctx.fillText(
     "31 • 08 • 2026",
     540,
-    1775
+    1765
+  );
+
+
+  /* SIMPLE FLORAL DECOR */
+
+  ctx.font = "65px serif";
+
+  ctx.fillText(
+    "💜",
+    100,
+    120
+  );
+
+  ctx.fillText(
+    "🌸",
+    970,
+    120
+  );
+
+  ctx.fillText(
+    "💐",
+    100,
+    1820
+  );
+
+  ctx.fillText(
+    "🌸",
+    970,
+    1820
   );
 
 
@@ -440,7 +663,6 @@ function capturePhoto() {
       "image/jpeg",
       0.95
     );
-
 
   photoResult.src =
     image;
@@ -452,25 +674,18 @@ function capturePhoto() {
     "none";
 
 
-  // Matikan kamera
-
   if(stream) {
 
     stream
-      .getTracks()
-      .forEach(
-        track =>
-          track.stop()
-      );
+    .getTracks()
+    .forEach(
+      track => track.stop()
+    );
 
   }
 
 }
 
-
-// =========================
-// DOWNLOAD
-// =========================
 
 download.onclick =
 function() {
@@ -489,45 +704,16 @@ function() {
 };
 
 
-// =========================
-// FOTO ULANG
-// =========================
-
 retake.onclick =
 async function() {
 
   result.style.display =
     "none";
 
-  try {
+  takePhoto.style.display =
+    "block";
 
-    stream =
-      await navigator.mediaDevices
-      .getUserMedia({
-
-        video: {
-          facingMode: "user"
-        },
-
-        audio: false
-
-      });
-
-    video.srcObject =
-      stream;
-
-    takePhoto.style.display =
-      "block";
-
-  }
-
-  catch(error) {
-
-    alert(
-      "Tidak bisa membuka kamera."
-    );
-
-  }
+  await startCamera();
 
 };
 
