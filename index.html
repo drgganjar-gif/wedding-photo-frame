@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganjar & Puteri | 31.08.2026</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f5f1eb;
+      font-family: Georgia, serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #3d3935;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+
+    .photo-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: white;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    }
+
+    #photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .frame {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding-bottom: 35px;
+      background: linear-gradient(
+        to bottom,
+        transparent 65%,
+        rgba(255,255,255,0.75)
+      );
+    }
+
+    .wedding {
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 7px;
+    }
+
+    .names {
+      font-size: 29px;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
+
+    .date {
+      font-size: 14px;
+      letter-spacing: 3px;
+      margin-top: 8px;
+    }
+
+    .button,
+    .choose {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 15px;
+      font-size: 15px;
+      cursor: pointer;
+      background: #3d3935;
+      color: white;
+    }
+
+    input {
+      display: none;
+    }
+
+    .choose {
+      display: block;
+    }
+
+    #download {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Wedding Photo</h1>
+
+    <div class="subtitle">
+      Ganjar & Puteri • 31.08.2026
+    </div>
+
+    <div class="photo-box">
+
+      <img id="photo" alt="Foto wedding">
+
+      <div class="frame">
+        <div class="wedding">THE WEDDING OF</div>
+        <div class="names">Ganjar & Puteri</div>
+        <div class="date">31.08.2026</div>
+      </div>
+
+    </div>
+
+    <label class="choose" for="upload">
+      📷 Pilih Foto
+    </label>
+
+    <input
+      type="file"
+      id="upload"
+      accept="image/*"
+    >
+
+    <button
+      class="button"
+      id="download"
+      onclick="downloadPhoto()"
+    >
+      ⬇️ Download Foto
+    </button>
+
+  </div>
+
+<script>
+
+const upload = document.getElementById("upload");
+const photo = document.getElementById("photo");
+const download = document.getElementById("download");
+
+upload.addEventListener("change", function(event) {
+
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+
+    photo.src = e.target.result;
+    photo.style.display = "block";
+    download.style.display = "block";
+
+  };
+
+  reader.readAsDataURL(file);
+
+});
+
+
+function downloadPhoto() {
+
+  const canvas = document.createElement("canvas");
+
+  canvas.width = 1080;
+  canvas.height = 1920;
+
+  const ctx = canvas.getContext("2d");
+
+  const img = new Image();
+
+  img.onload = function() {
+
+    const scale = Math.max(
+      canvas.width / img.width,
+      canvas.height / img.height
+    );
+
+    const width = img.width * scale;
+    const height = img.height * scale;
+
+    const x = (canvas.width - width) / 2;
+    const y = (canvas.height - height) / 2;
+
+    ctx.drawImage(img, x, y, width, height);
+
+    const gradient = ctx.createLinearGradient(
+      0,
+      1250,
+      0,
+      1920
+    );
+
+    gradient.addColorStop(0, "rgba(255,255,255,0)");
+    gradient.addColorStop(1, "rgba(255,255,255,0.85)");
+[11/08/2026 10:40] Ganjar: ctx.fillStyle = gradient;
+    ctx.fillRect(0, 1100, 1080, 820);
+
+    ctx.fillStyle = "#3d3935";
+    ctx.textAlign = "center";
+
+    ctx.font = "24px Georgia";
+    ctx.fillText(
+      "THE WEDDING OF",
+      540,
+      1650
+    );
+
+    ctx.font = "48px Georgia";
+    ctx.fillText(
+      "Ganjar & Puteri",
+      540,
+      1720
+    );
+
+    ctx.font = "24px Georgia";
+    ctx.fillText(
+      "31.08.2026",
+      540,
+      1770
+    );
+
+    const link = document.createElement("a");
+
+    link.download = "Ganjar-Puteri-31082026.jpg";
+    link.href = canvas.toDataURL("image/jpeg", 0.95);
+
+    link.click();
+
+  };
+
+  img.src = photo.src;
+
+}
+
+</script>
+
+</body>
+</html>
