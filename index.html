@@ -27,25 +27,22 @@ body {
 
 h1 {
   margin: 5px 0;
-
   font-size: 25px;
   letter-spacing: 2px;
 }
 
 .subtitle {
   margin-bottom: 16px;
-
   font-size: 14px;
   letter-spacing: 1px;
 }
 
 
 /* =========================
-   FRAME SELECTOR
+   PILIH FRAME
 ========================= */
 
 .frame-title {
-
   margin-top: 10px;
   margin-bottom: 10px;
 
@@ -54,25 +51,26 @@ h1 {
 }
 
 .frame-buttons {
-
   display: flex;
 
   justify-content: center;
 
   gap: 10px;
 
+  width: 100%;
   max-width: 420px;
 
   margin: 0 auto 15px;
 }
 
 .frame-button {
-
   flex: 1;
 
-  padding: 11px 8px;
+  width: auto;
 
   margin: 0;
+
+  padding: 11px 8px;
 
   border-radius: 10px;
 
@@ -88,7 +86,6 @@ h1 {
 }
 
 .frame-button.active {
-
   background: #684575;
 
   color: white;
@@ -98,15 +95,13 @@ h1 {
 
 
 /* =========================
-   CAMERA
+   CAMERA BOX
 ========================= */
 
 .camera-box {
-
   position: relative;
 
   width: 100%;
-
   max-width: 420px;
 
   aspect-ratio: 9 / 16;
@@ -120,12 +115,15 @@ h1 {
   border-radius: 18px;
 
   box-shadow:
-    0 8px 28px rgba(60,30,70,0.25);
+    0 8px 28px rgba(60, 30, 70, 0.25);
 }
 
 
-#camera {
+/* =========================
+   CAMERA
+========================= */
 
+#camera {
   position: absolute;
 
   inset: 0;
@@ -140,11 +138,10 @@ h1 {
 
 
 /* =========================
-   FRAME OVERLAY
+   FRAME
 ========================= */
 
 #frameOverlay {
-
   position: absolute;
 
   inset: 0;
@@ -165,7 +162,6 @@ h1 {
 ========================= */
 
 #switchCamera {
-
   position: absolute;
 
   top: 24px;
@@ -184,7 +180,7 @@ h1 {
   border-radius: 50%;
 
   background:
-    rgba(65,35,75,0.65);
+    rgba(65, 35, 75, 0.65);
 
   color: white;
 
@@ -199,7 +195,6 @@ h1 {
 ========================= */
 
 #countdown {
-
   position: absolute;
 
   top: 50%;
@@ -228,9 +223,7 @@ h1 {
 ========================= */
 
 button {
-
   width: 100%;
-
   max-width: 420px;
 
   margin: 12px auto 0;
@@ -250,13 +243,11 @@ button {
   cursor: pointer;
 
   box-shadow:
-    0 4px 12px rgba(80,40,90,0.2);
+    0 4px 12px rgba(80, 40, 90, 0.2);
 }
 
 button:active {
-
   transform: scale(0.98);
-
 }
 
 
@@ -265,24 +256,21 @@ button:active {
 ========================= */
 
 #result {
-
   display: none;
 
   width: 100%;
-
   max-width: 420px;
 
   margin: 20px auto;
 }
 
 #result img {
-
   width: 100%;
 
   border-radius: 16px;
 
   box-shadow:
-    0 6px 22px rgba(60,30,70,0.22);
+    0 6px 22px rgba(60, 30, 70, 0.22);
 }
 
 
@@ -291,12 +279,10 @@ button:active {
 ========================= */
 
 #canvas {
-
   display: none;
 }
 
 </style>
-
 </head>
 
 
@@ -343,7 +329,7 @@ Pilih Frame
 <div class="camera-box">
 
 
-  <!-- CAMERA -->
+  <!-- KAMERA -->
 
   <video
     id="camera"
@@ -356,7 +342,7 @@ Pilih Frame
 
   <img
     id="frameOverlay"
-    src="Frame01.png"
+    src="frame01.png"
     alt="Wedding Frame">
 
 
@@ -378,7 +364,7 @@ Pilih Frame
 </div>
 
 
-<!-- TAKE PHOTO -->
+<!-- AMBIL FOTO -->
 
 <button id="takePhoto">
 
@@ -387,7 +373,7 @@ Pilih Frame
 </button>
 
 
-<!-- RESULT -->
+<!-- HASIL -->
 
 <div id="result">
 
@@ -410,6 +396,7 @@ Pilih Frame
 
   </button>
 
+
 </div>
 
 
@@ -426,53 +413,42 @@ Pilih Frame
 const video =
   document.getElementById("camera");
 
-
 const takePhoto =
   document.getElementById("takePhoto");
-
 
 const switchCamera =
   document.getElementById("switchCamera");
 
-
 const countdown =
   document.getElementById("countdown");
-
 
 const canvas =
   document.getElementById("canvas");
 
-
 const result =
   document.getElementById("result");
-
 
 const photoResult =
   document.getElementById("photoResult");
 
-
 const download =
   document.getElementById("download");
-
 
 const retake =
   document.getElementById("retake");
 
-
 const frameOverlay =
   document.getElementById("frameOverlay");
 
-
 const frame1Button =
   document.getElementById("frame1Button");
-
 
 const frame2Button =
   document.getElementById("frame2Button");
 
 
 /* =========================
-   CAMERA STATE
+   CAMERA
 ========================= */
 
 let stream = null;
@@ -481,22 +457,22 @@ let facingMode = "user";
 
 
 /* =========================
-   FRAME STATE
+   FRAME
 ========================= */
 
 let selectedFrame =
-  "Frame01.png";
+  "frame01.png";
 
 
 /* =========================
-   SELECT FRAME 1
+   FRAME 1
 ========================= */
 
 frame1Button.onclick =
 function() {
 
   selectedFrame =
-    "Frame01.png";
+    "frame01.png";
 
   frameOverlay.src =
     selectedFrame;
@@ -513,14 +489,14 @@ function() {
 
 
 /* =========================
-   SELECT FRAME 2
+   FRAME 2
 ========================= */
 
 frame2Button.onclick =
 function() {
 
   selectedFrame =
-    "Frame02.png";
+    "frame02.png";
 
   frameOverlay.src =
     selectedFrame;
@@ -559,10 +535,8 @@ async function startCamera() {
       await navigator.mediaDevices.getUserMedia({
 
         video: {
-
           facingMode:
             facingMode
-
         },
 
         audio: false
@@ -590,7 +564,7 @@ async function startCamera() {
 
 
 /* =========================
-   PAGE LOAD
+   LOAD
 ========================= */
 
 window.addEventListener(
@@ -611,14 +585,13 @@ async function() {
       ? "environment"
       : "user";
 
-
   await startCamera();
 
 };
 
 
 /* =========================
-   TAKE PHOTO
+   AMBIL FOTO
 ========================= */
 
 takePhoto.onclick =
@@ -638,22 +611,19 @@ function() {
   const timer =
     setInterval(function() {
 
-
       number--;
 
 
-      if(number > 0) {
+      if (number > 0) {
 
         countdown.innerText =
           number;
 
       }
 
-
       else {
 
         clearInterval(timer);
-
 
         countdown.innerText =
           "📸";
@@ -666,18 +636,16 @@ function() {
 
       }
 
-
     }, 1000);
 
 };
 
 
 /* =========================
-   CAPTURE PHOTO
+   CAPTURE
 ========================= */
 
 function capturePhoto() {
-
 
   countdown.style.display =
     "none";
@@ -700,9 +668,8 @@ function capturePhoto() {
 
 
   /* =========================
-     DRAW CAMERA
+     CAMERA
   ========================= */
-
 
   const scale =
     Math.max(
@@ -750,7 +717,7 @@ function capturePhoto() {
 
 
   /* =========================
-     DRAW SELECTED FRAME
+     FRAME
   ========================= */
 
   const frame =
@@ -759,7 +726,6 @@ function capturePhoto() {
 
   frame.onload =
   function() {
-
 
     ctx.drawImage(
 
@@ -783,7 +749,7 @@ function capturePhoto() {
   function() {
 
     alert(
-      "Frame tidak ditemukan. Pastikan Frame01.png dan Frame02.png berada satu folder dengan index.html."
+      "Frame tidak ditemukan. Pastikan file frame01.png dan frame02.png berada satu folder dengan index.html."
     );
 
   };
@@ -796,11 +762,10 @@ function capturePhoto() {
 
 
 /* =========================
-   FINISH PHOTO
+   FINISH
 ========================= */
 
 function finishPhoto() {
-
 
   const image =
     canvas.toDataURL(
@@ -824,9 +789,7 @@ function finishPhoto() {
     "none";
 
 
-  /* STOP CAMERA */
-
-  if(stream) {
+  if (stream) {
 
     stream
       .getTracks()
@@ -846,7 +809,6 @@ function finishPhoto() {
 download.onclick =
 function() {
 
-
   const link =
     document.createElement("a");
 
@@ -865,12 +827,11 @@ function() {
 
 
 /* =========================
-   RETAKE
+   FOTO ULANG
 ========================= */
 
 retake.onclick =
 async function() {
-
 
   result.style.display =
     "none";
