@@ -55,7 +55,7 @@ h1 {
 
   justify-content: center;
 
-  gap: 10px;
+  gap: 8px;
 
   width: 100%;
   max-width: 420px;
@@ -70,7 +70,7 @@ h1 {
 
   margin: 0;
 
-  padding: 11px 8px;
+  padding: 11px 5px;
 
   border-radius: 10px;
 
@@ -82,7 +82,9 @@ h1 {
 
   box-shadow: none;
 
-  font-size: 14px;
+  font-size: 13px;
+
+  cursor: pointer;
 }
 
 .frame-button.active {
@@ -138,7 +140,7 @@ h1 {
 
 
 /* =========================
-   FRAME
+   FRAME OVERLAY
 ========================= */
 
 #frameOverlay {
@@ -306,6 +308,7 @@ Pilih Frame
 
 <div class="frame-buttons">
 
+
   <button
     class="frame-button active"
     id="frame1Button">
@@ -322,6 +325,16 @@ Pilih Frame
     💜 Frame 2
 
   </button>
+
+
+  <button
+    class="frame-button"
+    id="frame3Button">
+
+    🌿 Frame 3
+
+  </button>
+
 
 </div>
 
@@ -440,11 +453,15 @@ const retake =
 const frameOverlay =
   document.getElementById("frameOverlay");
 
+
 const frame1Button =
   document.getElementById("frame1Button");
 
 const frame2Button =
   document.getElementById("frame2Button");
+
+const frame3Button =
+  document.getElementById("frame3Button");
 
 
 /* =========================
@@ -477,11 +494,16 @@ function() {
   frameOverlay.src =
     selectedFrame;
 
+
   frame1Button.classList.add(
     "active"
   );
 
   frame2Button.classList.remove(
+    "active"
+  );
+
+  frame3Button.classList.remove(
     "active"
   );
 
@@ -501,11 +523,45 @@ function() {
   frameOverlay.src =
     selectedFrame;
 
+
   frame2Button.classList.add(
     "active"
   );
 
   frame1Button.classList.remove(
+    "active"
+  );
+
+  frame3Button.classList.remove(
+    "active"
+  );
+
+};
+
+
+/* =========================
+   FRAME 3
+========================= */
+
+frame3Button.onclick =
+function() {
+
+  selectedFrame =
+    "frame03.png";
+
+  frameOverlay.src =
+    selectedFrame;
+
+
+  frame3Button.classList.add(
+    "active"
+  );
+
+  frame1Button.classList.remove(
+    "active"
+  );
+
+  frame2Button.classList.remove(
     "active"
   );
 
@@ -535,8 +591,10 @@ async function startCamera() {
       await navigator.mediaDevices.getUserMedia({
 
         video: {
+
           facingMode:
             facingMode
+
         },
 
         audio: false
@@ -585,6 +643,7 @@ async function() {
       ? "environment"
       : "user";
 
+
   await startCamera();
 
 };
@@ -611,6 +670,7 @@ function() {
   const timer =
     setInterval(function() {
 
+
       number--;
 
 
@@ -625,6 +685,7 @@ function() {
 
         clearInterval(timer);
 
+
         countdown.innerText =
           "📸";
 
@@ -636,13 +697,14 @@ function() {
 
       }
 
+
     }, 1000);
 
 };
 
 
 /* =========================
-   CAPTURE
+   CAPTURE FOTO
 ========================= */
 
 function capturePhoto() {
@@ -749,7 +811,7 @@ function capturePhoto() {
   function() {
 
     alert(
-      "Frame tidak ditemukan. Pastikan file frame01.png dan frame02.png berada satu folder dengan index.html."
+      "Frame tidak ditemukan. Pastikan frame01.png, frame02.png, dan frame03.png berada satu folder dengan index.html."
     );
 
   };
@@ -762,7 +824,7 @@ function capturePhoto() {
 
 
 /* =========================
-   FINISH
+   FINISH FOTO
 ========================= */
 
 function finishPhoto() {
