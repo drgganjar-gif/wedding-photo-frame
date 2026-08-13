@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
 <meta charset="UTF-8">
@@ -17,33 +16,97 @@ body {
   margin: 0;
   padding: 18px;
   min-height: 100vh;
+
   background: #f3edf5;
+
   font-family: Georgia, serif;
   text-align: center;
+
   color: #382d3d;
 }
 
 h1 {
   margin: 5px 0;
+
   font-size: 25px;
   letter-spacing: 2px;
 }
 
 .subtitle {
   margin-bottom: 16px;
+
   font-size: 14px;
   letter-spacing: 1px;
 }
 
 
 /* =========================
-   CAMERA BOX
+   FRAME SELECTOR
+========================= */
+
+.frame-title {
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.frame-buttons {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  max-width: 420px;
+
+  margin: 0 auto 15px;
+}
+
+.frame-button {
+
+  flex: 1;
+
+  padding: 11px 8px;
+
+  margin: 0;
+
+  border-radius: 10px;
+
+  background: white;
+
+  color: #684575;
+
+  border: 2px solid #d9c8df;
+
+  box-shadow: none;
+
+  font-size: 14px;
+}
+
+.frame-button.active {
+
+  background: #684575;
+
+  color: white;
+
+  border-color: #684575;
+}
+
+
+/* =========================
+   CAMERA
 ========================= */
 
 .camera-box {
+
   position: relative;
 
   width: 100%;
+
   max-width: 420px;
 
   aspect-ratio: 9 / 16;
@@ -57,15 +120,12 @@ h1 {
   border-radius: 18px;
 
   box-shadow:
-    0 8px 28px rgba(60, 30, 70, 0.25);
+    0 8px 28px rgba(60,30,70,0.25);
 }
 
 
-/* =========================
-   CAMERA
-========================= */
-
 #camera {
+
   position: absolute;
 
   inset: 0;
@@ -80,10 +140,11 @@ h1 {
 
 
 /* =========================
-   CANVA FRAME
+   FRAME OVERLAY
 ========================= */
 
 #frameOverlay {
+
   position: absolute;
 
   inset: 0;
@@ -104,6 +165,7 @@ h1 {
 ========================= */
 
 #switchCamera {
+
   position: absolute;
 
   top: 24px;
@@ -118,9 +180,11 @@ h1 {
   padding: 0;
 
   border: none;
+
   border-radius: 50%;
 
-  background: rgba(65,35,75,0.65);
+  background:
+    rgba(65,35,75,0.65);
 
   color: white;
 
@@ -135,6 +199,7 @@ h1 {
 ========================= */
 
 #countdown {
+
   position: absolute;
 
   top: 50%;
@@ -163,7 +228,9 @@ h1 {
 ========================= */
 
 button {
+
   width: 100%;
+
   max-width: 420px;
 
   margin: 12px auto 0;
@@ -171,6 +238,7 @@ button {
   padding: 14px;
 
   border: none;
+
   border-radius: 11px;
 
   background: #684575;
@@ -186,7 +254,9 @@ button {
 }
 
 button:active {
+
   transform: scale(0.98);
+
 }
 
 
@@ -195,15 +265,18 @@ button:active {
 ========================= */
 
 #result {
+
   display: none;
 
   width: 100%;
+
   max-width: 420px;
 
   margin: 20px auto;
 }
 
 #result img {
+
   width: 100%;
 
   border-radius: 16px;
@@ -218,6 +291,7 @@ button:active {
 ========================= */
 
 #canvas {
+
   display: none;
 }
 
@@ -225,76 +299,122 @@ button:active {
 
 </head>
 
+
 <body>
+
 
 <h1>
 Wedding Photo
 </h1>
 
+
 <div class="subtitle">
 Ganjar & Puteri • 31.08.2026
 </div>
 
+
+<div class="frame-title">
+Pilih Frame
+</div>
+
+
+<div class="frame-buttons">
+
+  <button
+    class="frame-button active"
+    id="frame1Button">
+
+    🌸 Frame 1
+
+  </button>
+
+
+  <button
+    class="frame-button"
+    id="frame2Button">
+
+    💜 Frame 2
+
+  </button>
+
+</div>
+
+
 <div class="camera-box">
+
 
   <!-- CAMERA -->
 
-<video
- id="camera"
- autoplay
- playsinline> </video>
+  <video
+    id="camera"
+    autoplay
+    playsinline>
+  </video>
 
-  <!-- CANVA FRAME -->
 
-<img
- id="frameOverlay"
- src="frame01.png"
- alt="Wedding Frame">
+  <!-- FRAME -->
+
+  <img
+    id="frameOverlay"
+    src="Frame01.png"
+    alt="Wedding Frame">
+
 
   <!-- SWITCH CAMERA -->
 
-<button
- id="switchCamera">
+  <button
+    id="switchCamera">
 
-```
-🔄
-```
+    🔄
 
   </button>
+
 
   <!-- COUNTDOWN -->
 
   <div id="countdown"></div>
 
+
 </div>
+
 
 <!-- TAKE PHOTO -->
 
 <button id="takePhoto">
+
 📸 AMBIL FOTO
+
 </button>
+
 
 <!-- RESULT -->
 
 <div id="result">
 
-<img
- id="photoResult"
- alt="Hasil foto">
+
+  <img
+    id="photoResult"
+    alt="Hasil foto">
+
 
   <button id="download">
+
     ⬇️ DOWNLOAD FOTO
+
   </button>
 
+
   <button id="retake">
+
     🔄 FOTO ULANG
+
   </button>
 
 </div>
 
-<!-- CANVAS -->
 
 <canvas id="canvas"></canvas>
+
 
 <script>
 
@@ -306,29 +426,49 @@ Ganjar & Puteri • 31.08.2026
 const video =
   document.getElementById("camera");
 
+
 const takePhoto =
   document.getElementById("takePhoto");
+
 
 const switchCamera =
   document.getElementById("switchCamera");
 
+
 const countdown =
   document.getElementById("countdown");
+
 
 const canvas =
   document.getElementById("canvas");
 
+
 const result =
   document.getElementById("result");
+
 
 const photoResult =
   document.getElementById("photoResult");
 
+
 const download =
   document.getElementById("download");
 
+
 const retake =
   document.getElementById("retake");
+
+
+const frameOverlay =
+  document.getElementById("frameOverlay");
+
+
+const frame1Button =
+  document.getElementById("frame1Button");
+
+
+const frame2Button =
+  document.getElementById("frame2Button");
 
 
 /* =========================
@@ -338,6 +478,62 @@ const retake =
 let stream = null;
 
 let facingMode = "user";
+
+
+/* =========================
+   FRAME STATE
+========================= */
+
+let selectedFrame =
+  "Frame01.png";
+
+
+/* =========================
+   SELECT FRAME 1
+========================= */
+
+frame1Button.onclick =
+function() {
+
+  selectedFrame =
+    "Frame01.png";
+
+  frameOverlay.src =
+    selectedFrame;
+
+  frame1Button.classList.add(
+    "active"
+  );
+
+  frame2Button.classList.remove(
+    "active"
+  );
+
+};
+
+
+/* =========================
+   SELECT FRAME 2
+========================= */
+
+frame2Button.onclick =
+function() {
+
+  selectedFrame =
+    "Frame02.png";
+
+  frameOverlay.src =
+    selectedFrame;
+
+  frame2Button.classList.add(
+    "active"
+  );
+
+  frame1Button.classList.remove(
+    "active"
+  );
+
+};
 
 
 /* =========================
@@ -363,7 +559,10 @@ async function startCamera() {
       await navigator.mediaDevices.getUserMedia({
 
         video: {
-          facingMode: facingMode
+
+          facingMode:
+            facingMode
+
         },
 
         audio: false
@@ -373,6 +572,7 @@ async function startCamera() {
 
     video.srcObject =
       stream;
+
 
   }
 
@@ -411,6 +611,7 @@ async function() {
       ? "environment"
       : "user";
 
+
   await startCamera();
 
 };
@@ -425,8 +626,10 @@ function() {
 
   let number = 3;
 
+
   countdown.style.display =
     "block";
+
 
   countdown.innerText =
     number;
@@ -434,6 +637,7 @@ function() {
 
   const timer =
     setInterval(function() {
+
 
       number--;
 
@@ -445,9 +649,11 @@ function() {
 
       }
 
+
       else {
 
         clearInterval(timer);
+
 
         countdown.innerText =
           "📸";
@@ -460,6 +666,7 @@ function() {
 
       }
 
+
     }, 1000);
 
 };
@@ -471,11 +678,13 @@ function() {
 
 function capturePhoto() {
 
+
   countdown.style.display =
     "none";
 
 
   const width = 1080;
+
   const height = 1920;
 
 
@@ -493,6 +702,7 @@ function capturePhoto() {
   /* =========================
      DRAW CAMERA
   ========================= */
+
 
   const scale =
     Math.max(
@@ -540,7 +750,7 @@ function capturePhoto() {
 
 
   /* =========================
-     DRAW CANVA FRAME
+     DRAW SELECTED FRAME
   ========================= */
 
   const frame =
@@ -549,6 +759,7 @@ function capturePhoto() {
 
   frame.onload =
   function() {
+
 
     ctx.drawImage(
 
@@ -572,14 +783,14 @@ function capturePhoto() {
   function() {
 
     alert(
-      "Frame Canva tidak ditemukan. Pastikan file bernama frame01.png dan berada satu folder dengan index.html."
+      "Frame tidak ditemukan. Pastikan Frame01.png dan Frame02.png berada satu folder dengan index.html."
     );
 
   };
 
 
   frame.src =
-    "frame01.png";
+    selectedFrame;
 
 }
 
@@ -589,6 +800,7 @@ function capturePhoto() {
 ========================= */
 
 function finishPhoto() {
+
 
   const image =
     canvas.toDataURL(
@@ -634,6 +846,7 @@ function finishPhoto() {
 download.onclick =
 function() {
 
+
   const link =
     document.createElement("a");
 
@@ -657,6 +870,7 @@ function() {
 
 retake.onclick =
 async function() {
+
 
   result.style.display =
     "none";
