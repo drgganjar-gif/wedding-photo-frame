@@ -4,13 +4,10 @@
 
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Ganjar & Puteri | 31.08.2026</title>
-
 
 <style>
 
@@ -18,11 +15,9 @@
   box-sizing: border-box;
 }
 
-
 body {
 
   margin: 0;
-
   padding: 18px;
 
   min-height: 100vh;
@@ -34,7 +29,6 @@ body {
   text-align: center;
 
   color: #382d3d;
-
 }
 
 
@@ -45,7 +39,6 @@ h1 {
   font-size: 25px;
 
   letter-spacing: 2px;
-
 }
 
 
@@ -56,7 +49,6 @@ h1 {
   font-size: 14px;
 
   letter-spacing: 1px;
-
 }
 
 
@@ -73,7 +65,6 @@ h1 {
   font-size: 14px;
 
   letter-spacing: 1px;
-
 }
 
 
@@ -90,7 +81,6 @@ h1 {
   max-width: 420px;
 
   margin: 0 auto 15px;
-
 }
 
 
@@ -117,7 +107,6 @@ h1 {
   font-size: 12px;
 
   cursor: pointer;
-
 }
 
 
@@ -128,7 +117,6 @@ h1 {
   color: white;
 
   border-color: #684575;
-
 }
 
 
@@ -156,7 +144,6 @@ h1 {
 
   box-shadow:
     0 8px 28px rgba(60,30,70,0.25);
-
 }
 
 
@@ -173,7 +160,6 @@ h1 {
   object-fit: cover;
 
   z-index: 1;
-
 }
 
 
@@ -192,12 +178,11 @@ h1 {
   z-index: 10;
 
   pointer-events: none;
-
 }
 
 
 /* =========================
-   SWITCH CAMERA
+   CAMERA BUTTON
 ========================= */
 
 #switchCamera {
@@ -230,7 +215,6 @@ h1 {
   font-size: 20px;
 
   cursor: pointer;
-
 }
 
 
@@ -247,7 +231,7 @@ h1 {
   left: 50%;
 
   transform:
-    translate(-50%,-50%);
+    translate(-50%, -50%);
 
   z-index: 30;
 
@@ -261,7 +245,6 @@ h1 {
     0 3px 15px #3b1748;
 
   display: none;
-
 }
 
 
@@ -293,43 +276,12 @@ button {
 
   box-shadow:
     0 4px 12px rgba(80,40,90,0.2);
-
 }
 
 
 button:active {
 
   transform: scale(0.98);
-
-}
-
-
-/* =========================
-   RESULT
-========================= */
-
-#result {
-
-  display: none;
-
-  width: 100%;
-
-  max-width: 420px;
-
-  margin: 20px auto;
-
-}
-
-
-#photoResult {
-
-  width: 100%;
-
-  border-radius: 16px;
-
-  box-shadow:
-    0 6px 22px rgba(60,30,70,0.22);
-
 }
 
 
@@ -346,7 +298,6 @@ button:active {
   max-width: 420px;
 
   margin: 18px auto 0;
-
 }
 
 
@@ -357,7 +308,6 @@ button:active {
   font-size: 14px;
 
   letter-spacing: 1px;
-
 }
 
 
@@ -384,14 +334,12 @@ button:active {
   font-size: 14px;
 
   outline: none;
-
 }
 
 
 #captionInput:focus {
 
   border-color: #684575;
-
 }
 
 
@@ -404,14 +352,33 @@ button:active {
   font-size: 11px;
 
   color: #806d86;
-
 }
 
 
-#applyCaption {
+/* =========================
+   RESULT
+========================= */
 
-  margin-top: 10px;
+#result {
 
+  display: none;
+
+  width: 100%;
+
+  max-width: 420px;
+
+  margin: 20px auto;
+}
+
+
+#photoResult {
+
+  width: 100%;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 6px 22px rgba(60,30,70,0.22);
 }
 
 
@@ -426,7 +393,6 @@ button:active {
   font-size: 11px;
 
   color: #806d86;
-
 }
 
 
@@ -437,7 +403,6 @@ button:active {
 #canvas {
 
   display: none;
-
 }
 
 </style>
@@ -566,7 +531,7 @@ Memuat kamera...
 <textarea
   id="captionInput"
   maxlength="120"
-  placeholder="Contoh: Semoga bahagia selalu dan menjadi keluarga yang sakinah 🤍">
+  placeholder="Contoh: Semoga bahagia selalu 🤍">
 </textarea>
 
 
@@ -638,78 +603,59 @@ Memuat kamera...
 const video =
   document.getElementById("camera");
 
-
 const takePhoto =
   document.getElementById("takePhoto");
-
 
 const switchCamera =
   document.getElementById("switchCamera");
 
-
 const countdown =
   document.getElementById("countdown");
-
 
 const canvas =
   document.getElementById("canvas");
 
-
 const result =
   document.getElementById("result");
-
 
 const photoResult =
   document.getElementById("photoResult");
 
-
 const download =
   document.getElementById("download");
-
 
 const share =
   document.getElementById("share");
 
-
 const retake =
   document.getElementById("retake");
-
 
 const frameOverlay =
   document.getElementById("frameOverlay");
 
-
 const resolutionInfo =
   document.getElementById("resolutionInfo");
-
 
 const captionBox =
   document.getElementById("captionBox");
 
-
 const captionInput =
   document.getElementById("captionInput");
-
 
 const captionCounter =
   document.getElementById("captionCounter");
 
-
 const applyCaption =
   document.getElementById("applyCaption");
-
 
 const frame1Button =
   document.getElementById("frame1Button");
 
-
 const frame2Button =
   document.getElementById("frame2Button");
 
-
 const frame3Button =
   document.getElementById("frame3Button");
-
 
 const frame4Button =
   document.getElementById("frame4Button");
@@ -733,32 +679,54 @@ let selectedFrame =
 
 
 /* =========================
+   FINAL SIZE
+========================= */
+
+const FINAL_WIDTH = 1080;
+
+const FINAL_HEIGHT = 1920;
+
+
+/* =========================
    FRAME SELECTOR
 ========================= */
+
+function selectFrame(
+  frame,
+  activeButton
+) {
+
+  selectedFrame = frame;
+
+  frameOverlay.src = frame;
+
+
+  document
+    .querySelectorAll(".frame-button")
+    .forEach(
+      button => {
+
+        button.classList.remove(
+          "active"
+        );
+
+      }
+    );
+
+
+  activeButton.classList.add(
+    "active"
+  );
+
+}
+
 
 frame1Button.onclick =
 function() {
 
-  selectedFrame =
-    "frame01.png";
-
-  frameOverlay.src =
-    selectedFrame;
-
-  frame1Button.classList.add(
-    "active"
-  );
-
-  frame2Button.classList.remove(
-    "active"
-  );
-
-  frame3Button.classList.remove(
-    "active"
-  );
-
-  frame4Button.classList.remove(
-    "active"
+  selectFrame(
+    "frame01.png",
+    frame1Button
   );
 
 };
@@ -767,26 +735,9 @@ function() {
 frame2Button.onclick =
 function() {
 
-  selectedFrame =
-    "frame02.png";
-
-  frameOverlay.src =
-    selectedFrame;
-
-  frame2Button.classList.add(
-    "active"
-  );
-
-  frame1Button.classList.remove(
-    "active"
-  );
-
-  frame3Button.classList.remove(
-    "active"
-  );
-
-  frame4Button.classList.remove(
-    "active"
+  selectFrame(
+    "frame02.png",
+    frame2Button
   );
 
 };
@@ -795,26 +746,9 @@ function() {
 frame3Button.onclick =
 function() {
 
-  selectedFrame =
-    "frame03.png";
-
-  frameOverlay.src =
-    selectedFrame;
-
-  frame3Button.classList.add(
-    "active"
-  );
-
-  frame1Button.classList.remove(
-    "active"
-  );
-
-  frame2Button.classList.remove(
-    "active"
-  );
-
-  frame4Button.classList.remove(
-    "active"
+  selectFrame(
+    "frame03.png",
+    frame3Button
   );
 
 };
@@ -823,26 +757,9 @@ function() {
 frame4Button.onclick =
 function() {
 
-  selectedFrame =
-    "frame04.png";
-
-  frameOverlay.src =
-    selectedFrame;
-
-  frame4Button.classList.add(
-    "active"
-  );
-
-  frame1Button.classList.remove(
-    "active"
-  );
-
-  frame2Button.classList.remove(
-    "active"
-  );
-
-  frame3Button.classList.remove(
-    "active"
+  selectFrame(
+    "frame04.png",
+    frame4Button
   );
 
 };
@@ -868,30 +785,37 @@ async function startCamera() {
 
 
     stream =
-      await navigator.mediaDevices.getUserMedia({
+      await navigator.mediaDevices
+        .getUserMedia({
 
-        video: {
+          video: {
 
-          facingMode:
-            facingMode,
+            facingMode:
+              facingMode,
 
-          width: {
-            ideal: 3840
+            width: {
+
+              ideal: 3840
+
+            },
+
+            height: {
+
+              ideal: 2160
+
+            },
+
+            frameRate: {
+
+              ideal: 30
+
+            }
+
           },
 
-          height: {
-            ideal: 2160
-          },
+          audio: false
 
-          frameRate: {
-            ideal: 30
-          }
-
-        },
-
-        audio: false
-
-      });
+        });
 
 
     video.srcObject =
@@ -923,10 +847,6 @@ async function startCamera() {
 }
 
 
-/* =========================
-   LOAD
-========================= */
-
 window.addEventListener(
   "load",
   startCamera
@@ -945,19 +865,24 @@ async function() {
       ? "environment"
       : "user";
 
+
   await startCamera();
 
 };
 
 
 /* =========================
-   AMBIL FOTO
+   COUNTDOWN
 ========================= */
 
 takePhoto.onclick =
 function() {
 
   let number = 3;
+
+
+  takePhoto.disabled =
+    true;
 
 
   countdown.style.display =
@@ -969,47 +894,89 @@ function() {
 
 
   const timer =
-    setInterval(function() {
+    setInterval(
+      function() {
 
-      number--;
-
-
-      if (number > 0) {
-
-        countdown.innerText =
-          number;
-
-      }
-
-      else {
-
-        clearInterval(timer);
-
-        countdown.innerText =
-          "📸";
+        number--;
 
 
-        setTimeout(
-          capturePhoto,
-          300
-        );
+        if (number > 0) {
 
-      }
+          countdown.innerText =
+            number;
 
-    },1000);
+        }
+
+        else {
+
+          clearInterval(timer);
+
+
+          countdown.innerText =
+            "📸";
+
+
+          setTimeout(
+            capturePhoto,
+            300
+          );
+
+        }
+
+      },
+      1000
+    );
 
 };
 
 
 /* =========================
-   CAPTURE FOTO
+   CAPTURE
 ========================= */
 
 function capturePhoto() {
 
-
   countdown.style.display =
     "none";
+
+
+  /*
+    Kita tetap membuat hasil
+    1080 × 1920.
+  */
+
+
+  canvas.width =
+    FINAL_WIDTH;
+
+
+  canvas.height =
+    FINAL_HEIGHT;
+
+
+  const ctx =
+    canvas.getContext("2d");
+
+
+  /*
+    AREA FOTO
+
+    Caption akan mengambil
+    ruang dari bagian bawah.
+  */
+
+  const captionArea =
+    270;
+
+
+  const photoHeight =
+    FINAL_HEIGHT -
+    captionArea;
+
+
+  const targetRatio =
+    FINAL_WIDTH /
+    photoHeight;
 
 
   const sourceWidth =
@@ -1018,10 +985,6 @@ function capturePhoto() {
 
   const sourceHeight =
     video.videoHeight;
-
-
-  const targetRatio =
-    9 / 16;
 
 
   let cropWidth =
@@ -1063,27 +1026,25 @@ function capturePhoto() {
     ) / 2;
 
 
-  const outputWidth =
-    Math.round(cropWidth);
+  /*
+    BACKGROUND
+  */
+
+  ctx.fillStyle =
+    "#fffafc";
 
 
-  const outputHeight =
-    Math.round(cropHeight);
+  ctx.fillRect(
+    0,
+    0,
+    FINAL_WIDTH,
+    FINAL_HEIGHT
+  );
 
 
-  canvas.width =
-    outputWidth;
-
-
-  canvas.height =
-    outputHeight;
-
-
-  const ctx =
-    canvas.getContext("2d");
-
-
-  /* CAMERA */
+  /*
+    CAMERA
+  */
 
   ctx.drawImage(
 
@@ -1098,13 +1059,15 @@ function capturePhoto() {
     0,
     0,
 
-    outputWidth,
-    outputHeight
+    FINAL_WIDTH,
+    photoHeight
 
   );
 
 
-  /* FRAME */
+  /*
+    FRAME
+  */
 
   const frame =
     new Image();
@@ -1113,7 +1076,6 @@ function capturePhoto() {
   frame.onload =
   function() {
 
-
     ctx.drawImage(
 
       frame,
@@ -1121,8 +1083,8 @@ function capturePhoto() {
       0,
       0,
 
-      outputWidth,
-      outputHeight
+      FINAL_WIDTH,
+      photoHeight
 
     );
 
@@ -1136,8 +1098,12 @@ function capturePhoto() {
   function() {
 
     alert(
-      "Frame tidak ditemukan. Pastikan file frame berada satu folder dengan index.html."
+      "Frame tidak ditemukan. Pastikan nama file frame sama persis."
     );
+
+
+    takePhoto.disabled =
+      false;
 
   };
 
@@ -1149,21 +1115,16 @@ function capturePhoto() {
 
 
 /* =========================
-   FINISH FOTO
+   FINISH
 ========================= */
 
 function finishPhoto() {
 
-
-  const image =
+  photoResult.src =
     canvas.toDataURL(
       "image/jpeg",
       1.0
     );
-
-
-  photoResult.src =
-    image;
 
 
   result.style.display =
@@ -1215,12 +1176,11 @@ captionInput.addEventListener(
 
 
 /* =========================
-   TAMBAHKAN CAPTION
+   CAPTION
 ========================= */
 
 applyCaption.onclick =
 function() {
-
 
   const caption =
     captionInput.value.trim();
@@ -1237,57 +1197,30 @@ function() {
   }
 
 
-  const oldCanvas =
-    document.createElement("canvas");
+  /*
+    Canvas sudah 1080 × 1920.
 
-
-  oldCanvas.width =
-    canvas.width;
-
-
-  oldCanvas.height =
-    canvas.height;
-
-
-  const oldCtx =
-    oldCanvas.getContext("2d");
-
-
-  oldCtx.drawImage(
-    canvas,
-    0,
-    0
-  );
-
-
-  /* =========================
-     AREA CAPTION
-  ========================= */
-
-  const captionHeight =
-    Math.round(
-      canvas.width * 0.20
-    );
-
-
-  const finalCanvas =
-    document.createElement("canvas");
-
-
-  finalCanvas.width =
-    canvas.width;
-
-
-  finalCanvas.height =
-    canvas.height +
-    captionHeight;
+    Caption ditempatkan
+    di area 270px paling bawah.
+  */
 
 
   const ctx =
-    finalCanvas.getContext("2d");
+    canvas.getContext("2d");
 
 
-  /* BACKGROUND */
+  const captionArea =
+    270;
+
+
+  const captionStart =
+    FINAL_HEIGHT -
+    captionArea;
+
+
+  /*
+    BACKGROUND CAPTION
+  */
 
   ctx.fillStyle =
     "#fffafc";
@@ -1296,27 +1229,19 @@ function() {
   ctx.fillRect(
 
     0,
-    0,
 
-    finalCanvas.width,
-    finalCanvas.height
+    captionStart,
 
-  );
+    FINAL_WIDTH,
 
-
-  /* FOTO */
-
-  ctx.drawImage(
-
-    oldCanvas,
-
-    0,
-    0
+    captionArea
 
   );
 
 
-  /* GARIS PEMBATAS */
+  /*
+    GARIS
+  */
 
   ctx.strokeStyle =
     "#d8c5dc";
@@ -1330,74 +1255,61 @@ function() {
 
 
   ctx.moveTo(
-
-    40,
-    canvas.height +
-    10
-
+    70,
+    captionStart + 18
   );
 
 
   ctx.lineTo(
-
-    canvas.width - 40,
-    canvas.height +
-    10
-
+    FINAL_WIDTH - 70,
+    captionStart + 18
   );
 
 
   ctx.stroke();
 
 
-  /* JUDUL */
-
-  ctx.fillStyle =
-    "#684575";
-
+  /*
+    TITLE
+  */
 
   ctx.textAlign =
     "center";
 
 
+  ctx.fillStyle =
+    "#684575";
+
+
   ctx.font =
-    "bold " +
-    Math.round(
-      canvas.width * 0.030
-    ) +
-    "px Georgia";
+    "bold 30px Georgia";
 
 
   ctx.fillText(
 
     "A little note for Ganjar & Puteri",
 
-    canvas.width / 2,
+    FINAL_WIDTH / 2,
 
-    canvas.height +
-    Math.round(
-      captionHeight * 0.36
-    )
+    captionStart + 70
 
   );
 
 
-  /* CAPTION */
-
-  ctx.font =
-    Math.round(
-      canvas.width * 0.026
-    ) +
-    "px Georgia";
-
+  /*
+    CAPTION
+  */
 
   ctx.fillStyle =
     "#382d3d";
 
 
+  ctx.font =
+    "26px Georgia";
+
+
   const maxWidth =
-    canvas.width -
-    100;
+    FINAL_WIDTH - 140;
 
 
   const words =
@@ -1408,7 +1320,7 @@ function() {
     "";
 
 
-  let lines =
+  const lines =
     [];
 
 
@@ -1418,22 +1330,20 @@ function() {
     i++
   ) {
 
-
     const testLine =
       line +
       words[i] +
       " ";
 
 
-    const metrics =
+    const width =
       ctx.measureText(
         testLine
-      );
+      ).width;
 
 
     if (
-      metrics.width >
-      maxWidth &&
+      width > maxWidth &&
       line !== ""
     ) {
 
@@ -1458,71 +1368,55 @@ function() {
   }
 
 
-  lines.push(
-    line.trim()
-  );
+  if (line.trim()) {
+
+    lines.push(
+      line.trim()
+    );
+
+  }
+
+
+  /*
+    Maksimal 4 baris
+  */
+
+  const finalLines =
+    lines.slice(0, 4);
 
 
   const lineHeight =
-    Math.round(
-      canvas.width * 0.035
-    );
+    38;
 
 
   const startY =
-    canvas.height +
-    Math.round(
-      captionHeight * 0.58
-    );
+    captionStart + 125;
 
 
-  lines
-    .slice(0,3)
-    .forEach(
-      (text,index) => {
+  finalLines.forEach(
+    function(text, index) {
 
-        ctx.fillText(
+      ctx.fillText(
 
-          text,
+        text,
 
-          canvas.width / 2,
+        FINAL_WIDTH / 2,
 
-          startY +
-          (
-            index *
-            lineHeight
-          )
+        startY +
+        (
+          index *
+          lineHeight
+        )
 
-        );
+      );
 
-      }
-    );
-
-
-  /* =========================
-     UPDATE CANVAS
-  ========================= */
-
-  canvas.width =
-    finalCanvas.width;
-
-
-  canvas.height =
-    finalCanvas.height;
-
-
-  const finalCtx =
-    canvas.getContext("2d");
-
-
-  finalCtx.drawImage(
-    finalCanvas,
-    0,
-    0
+    }
   );
 
 
-  /* UPDATE PREVIEW */
+  /*
+    UPDATE PREVIEW
+  */
 
   photoResult.src =
     canvas.toDataURL(
@@ -1555,13 +1449,12 @@ function() {
 download.onclick =
 function() {
 
-
   const link =
     document.createElement("a");
 
 
   link.download =
-    "Ganjar-Puteri-31082026-HD.jpg";
+    "Ganjar-Puteri-31082026-Story.jpg";
 
 
   link.href =
@@ -1583,9 +1476,7 @@ function() {
 share.onclick =
 async function() {
 
-
   try {
-
 
     const blob =
       await new Promise(
@@ -1610,11 +1501,13 @@ async function() {
 
         [blob],
 
-        "Ganjar-Puteri-31082026.jpg",
+        "Ganjar-Puteri-31082026-Story.jpg",
 
         {
+
           type:
             "image/jpeg"
+
         }
 
       );
@@ -1632,7 +1525,6 @@ async function() {
 
     ) {
 
-
       await navigator.share({
 
         files: [file],
@@ -1645,18 +1537,15 @@ async function() {
 
       });
 
-
     }
 
     else {
 
-
       alert(
-        "Perangkat ini belum mendukung fitur berbagi foto. Silakan download foto terlebih dahulu."
+        "Perangkat ini belum mendukung berbagi foto langsung. Silakan download foto terlebih dahulu."
       );
 
     }
-
 
   }
 
@@ -1676,7 +1565,6 @@ async function() {
 retake.onclick =
 async function() {
 
-
   result.style.display =
     "none";
 
@@ -1689,10 +1577,13 @@ async function() {
     "block";
 
 
+  takePhoto.disabled =
+    false;
+
+
   await startCamera();
 
 };
-
 
 </script>
 
