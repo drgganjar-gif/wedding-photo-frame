@@ -140,7 +140,7 @@ h1 {
 
 
 /* =========================
-   FRAME OVERLAY
+   FRAME
 ========================= */
 
 #frameOverlay {
@@ -266,13 +266,28 @@ button:active {
   margin: 20px auto;
 }
 
-#result img {
+#photoResult {
   width: 100%;
 
   border-radius: 16px;
 
   box-shadow:
     0 6px 22px rgba(60, 30, 70, 0.22);
+}
+
+
+/* =========================
+   INFO RESOLUTION
+========================= */
+
+#resolutionInfo {
+
+  margin-top: 8px;
+
+  font-size: 11px;
+
+  color: #806d86;
+
 }
 
 
@@ -351,8 +366,6 @@ Pilih Frame
 <div class="camera-box">
 
 
-  <!-- KAMERA -->
-
   <video
     id="camera"
     autoplay
@@ -360,15 +373,11 @@ Pilih Frame
   </video>
 
 
-  <!-- FRAME -->
-
   <img
     id="frameOverlay"
     src="frame01.png"
     alt="Wedding Frame">
 
-
-  <!-- SWITCH CAMERA -->
 
   <button
     id="switchCamera">
@@ -378,15 +387,16 @@ Pilih Frame
   </button>
 
 
-  <!-- COUNTDOWN -->
-
   <div id="countdown"></div>
 
 
 </div>
 
 
-<!-- AMBIL FOTO -->
+<div id="resolutionInfo">
+Memuat kamera...
+</div>
+
 
 <button id="takePhoto">
 
@@ -394,8 +404,6 @@ Pilih Frame
 
 </button>
 
-
-<!-- HASIL -->
 
 <div id="result">
 
@@ -461,6 +469,9 @@ const retake =
 
 const frameOverlay =
   document.getElementById("frameOverlay");
+
+const resolutionInfo =
+  document.getElementById("resolutionInfo");
 
 
 const frame1Button =
@@ -633,6 +644,7 @@ async function startCamera() {
 
   try {
 
+
     if (stream) {
 
       stream
@@ -650,7 +662,19 @@ async function startCamera() {
         video: {
 
           facingMode:
-            facingMode
+            facingMode,
+
+          width: {
+            ideal: 3840
+          },
+
+          height: {
+            ideal: 2160
+          },
+
+          frameRate: {
+            ideal: 30
+          }
 
         },
 
@@ -661,6 +685,27 @@ async function startCamera() {
 
     video.srcObject =
       stream;
+
+
+    await video.play();
+
+
+    /* =========================
+       RESOLUTION
+    ========================= */
+
+    const actualWidth =
+      video.videoWidth;
+
+    const actualHeight =
+      video.videoHeight;
+
+
+    resolutionInfo.innerText =
+      "Kamera: " +
+      actualWidth +
+      " × " +
+      actualHeight;
 
 
   }
@@ -761,76 +806,112 @@ function() {
 
 
 /* =========================
-   CAPTURE FOTO
+   CAPTURE FOTO HD
 ========================= */
 
 function capturePhoto() {
+
 
   countdown.style.display =
     "none";
 
 
-  const width = 1080;
+  /* =========================
+     AMBIL RESOLUSI KAMERA
+  ========================= */
 
-  const height = 1920;
+  const sourceWidth =
+    video.videoWidth;
+
+  const sourceHeight =
+    video.videoHeight;
+
+
+  /* =========================
+     TARGET 9:16
+  ========================= */
+
+  const targetRatio =
+    9 / 16;
+
+
+  let cropWidth =
+    sourceWidth;
+
+
+  let cropHeight =
+    sourceWidth /
+    targetRatio;
+
+
+  if (cropHeight > sourceHeight) {
+
+    cropHeight =
+      sourceHeight;
+
+    cropWidth =
+      sourceHeight *
+      targetRatio;
+
+  }
+
+
+  const cropX =
+    (sourceWidth -
+      cropWidth) / 2;
+
+
+  const cropY =
+    (sourceHeight -
+      cropHeight) / 2;
+
+
+  /* =========================
+     CANVAS
+  ========================= */
+
+  const outputWidth =
+    Math.round(cropWidth);
+
+  const outputHeight =
+    Math.round(cropHeight);
 
 
   canvas.width =
-    width;
+    outputWidth;
 
   canvas.height =
-    height;
+    outputHeight;
 
 
   const ctx =
-    canvas.getContext("2d");
+    canvas.getContext(
+      "2d",
+      {
+        alpha: false
+      }
+    );
 
 
   /* =========================
      CAMERA
   ========================= */
 
-  const scale =
-    Math.max(
-
-      width /
-        video.videoWidth,
-
-      height /
-        video.videoHeight
-
-    );
-
-
-  const newWidth =
-    video.videoWidth *
-    scale;
-
-
-  const newHeight =
-    video.videoHeight *
-    scale;
-
-
-  const x =
-    (width -
-      newWidth) / 2;
-
-
-  const y =
-    (height -
-      newHeight) / 2;
-
-
   ctx.drawImage(
 
     video,
 
-    x,
-    y,
+    cropX,
+    cropY,
 
-    newWidth,
-    newHeight
+    cropWidth,
+    cropHeight,
+
+    0,
+    0,
+
+    outputWidth,
+    outputHeight
 
   );
 
@@ -846,6 +927,7 @@ function capturePhoto() {
   frame.onload =
   function() {
 
+
     ctx.drawImage(
 
       frame,
@@ -853,8 +935,8 @@ function capturePhoto() {
       0,
       0,
 
-      width,
-      height
+      outputWidth,
+      outputHeight
 
     );
 
@@ -886,12 +968,13 @@ function capturePhoto() {
 
 function finishPhoto() {
 
+
   const image =
     canvas.toDataURL(
 
       "image/jpeg",
 
-      0.95
+      1.0
 
     );
 
@@ -928,12 +1011,13 @@ function finishPhoto() {
 download.onclick =
 function() {
 
+
   const link =
     document.createElement("a");
 
 
   link.download =
-    "Ganjar-Puteri-31082026.jpg";
+    "Ganjar-Puteri-31082026-HD.jpg";
 
 
   link.href =
@@ -951,6 +1035,7 @@ function() {
 
 retake.onclick =
 async function() {
+
 
   result.style.display =
     "none";
