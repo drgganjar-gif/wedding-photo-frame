@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
 <meta charset="UTF-8">
@@ -9,19 +10,24 @@
   content="width=device-width, initial-scale=1.0"
 >
 
-<title>Ginanjar & Puteri | 31.08.2026</title>
+<title>
+Ginanjar & Puteri | Wedding Photo Experience
+</title>
 
 
 <style>
 
 /* =====================================================
-   GLOBAL
+   RESET
 ===================================================== */
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
 
@@ -29,14 +35,14 @@ body {
 
   min-height: 100vh;
 
-  padding: 24px 16px 40px;
+  padding: 24px 16px 45px;
 
   background:
     radial-gradient(
-      circle at top,
-      #fffdfd 0%,
-      #f8f1f8 45%,
-      #eee4ef 100%
+      circle at 50% 0%,
+      #fffefe 0%,
+      #faf5fa 38%,
+      #eee4f0 100%
     );
 
   color: #3d3042;
@@ -57,48 +63,49 @@ body {
 
 .header {
 
+  width: 100%;
+
   max-width: 500px;
 
-  margin: 0 auto 22px;
+  margin: 0 auto 24px;
 
 }
 
+.eyebrow {
 
-.small-title {
-
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 
   font-family:
     Arial,
     sans-serif;
 
-  font-size: 10px;
+  font-size: 9px;
 
   letter-spacing: 4px;
 
-  color: #8a738d;
+  color: #8c778f;
 
   text-transform: uppercase;
 
 }
 
-
 .names {
 
   margin: 0;
 
-  font-size: 29px;
+  font-size: 30px;
+
+  line-height: 1.2;
 
   font-weight: normal;
 
   letter-spacing: 2px;
 
-  color: #4b3651;
+  color: #4c3652;
 
 }
 
-
-.date {
+.subtitle {
 
   margin-top: 8px;
 
@@ -106,24 +113,41 @@ body {
     Arial,
     sans-serif;
 
+  font-size: 10px;
+
+  letter-spacing: 2.5px;
+
+  color: #806d86;
+
+  text-transform: uppercase;
+
+}
+
+.date {
+
+  margin-top: 7px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
   font-size: 11px;
 
-  letter-spacing: 3px;
+  letter-spacing: 4px;
 
   color: #806d86;
 
 }
 
+.love-divider {
 
-.divider {
+  margin-top: 14px;
 
-  width: 55px;
+  font-size: 18px;
 
-  height: 1px;
+  color: #a88eac;
 
-  margin: 15px auto 0;
-
-  background: #bba8bf;
+  letter-spacing: 4px;
 
 }
 
@@ -142,7 +166,6 @@ body {
 
 }
 
-
 .camera-box {
 
   position: relative;
@@ -155,14 +178,13 @@ body {
 
   background: #111;
 
-  border-radius: 20px;
+  border-radius: 21px;
 
   box-shadow:
-    0 15px 40px
-    rgba(65, 40, 70, 0.20);
+    0 16px 42px
+    rgba(62, 38, 68, 0.22);
 
 }
-
 
 #camera {
 
@@ -179,7 +201,6 @@ body {
   z-index: 1;
 
 }
-
 
 #frameOverlay {
 
@@ -201,41 +222,42 @@ body {
 
 
 /* =====================================================
-   CAMERA SWITCH
+   SWITCH CAMERA
 ===================================================== */
 
 #switchCamera {
 
   position: absolute;
 
-  top: 18px;
+  top: 17px;
 
-  right: 18px;
+  right: 17px;
 
   z-index: 30;
 
-  width: 42px;
+  width: 43px;
 
-  height: 42px;
+  height: 43px;
 
   margin: 0;
 
   padding: 0;
 
-  border: 1px solid
-    rgba(255,255,255,0.5);
+  border:
+    1px solid
+    rgba(255,255,255,0.55);
 
   border-radius: 50%;
 
   background:
-    rgba(50,35,55,0.55);
+    rgba(47,32,53,0.55);
 
   color: white;
 
-  font-size: 18px;
+  font-size: 19px;
 
   backdrop-filter:
-    blur(5px);
+    blur(7px);
 
   cursor: pointer;
 
@@ -255,9 +277,10 @@ body {
   left: 50%;
 
   transform:
-    translate(-50%, -50%);
+    translate(-50%, -50%)
+    scale(1);
 
-  z-index: 40;
+  z-index: 50;
 
   display: none;
 
@@ -265,15 +288,50 @@ body {
     Georgia,
     serif;
 
-  font-size: 90px;
+  font-size: 100px;
 
   font-weight: bold;
 
   color: white;
 
   text-shadow:
-    0 3px 20px
-    rgba(40,20,50,0.8);
+    0 4px 25px
+    rgba(30,15,40,0.85);
+
+  animation:
+    countdownPop
+    .9s
+    ease-out;
+
+}
+
+@keyframes countdownPop {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.45);
+
+  }
+
+  35% {
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+
+  }
 
 }
 
@@ -284,29 +342,55 @@ body {
 
 #resolutionInfo {
 
-  margin: 10px 0 0;
+  margin-top: 9px;
 
   font-family:
     Arial,
     sans-serif;
 
-  font-size: 10px;
+  font-size: 9px;
 
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 
-  color: #99889c;
+  color: #9a899d;
 
 }
 
 
 /* =====================================================
-   SECTION TITLE
+   FRAME PANEL
 ===================================================== */
 
-.section-label {
+.frame-panel {
 
-  margin:
-    24px auto 12px;
+  width: 100%;
+
+  max-width: 430px;
+
+  margin: 24px auto 0;
+
+  padding:
+    18px 14px 14px;
+
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #684575 0%,
+      #765181 48%,
+      #83618d 100%
+    );
+
+  box-shadow:
+    0 10px 26px
+    rgba(75,40,85,0.20);
+
+}
+
+.frame-panel-title {
+
+  margin-bottom: 4px;
 
   font-family:
     Arial,
@@ -314,17 +398,34 @@ body {
 
   font-size: 10px;
 
+  font-weight: bold;
+
   letter-spacing: 3px;
 
-  color: #806d86;
+  color: white;
 
   text-transform: uppercase;
 
 }
 
+.frame-panel-subtitle {
+
+  margin-bottom: 14px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 9px;
+
+  color:
+    rgba(255,255,255,0.72);
+
+}
+
 
 /* =====================================================
-   FRAME SELECTOR - PURPLE
+   FRAME SELECTOR
 ===================================================== */
 
 .frame-selector {
@@ -334,35 +435,9 @@ body {
   grid-template-columns:
     repeat(4, 1fr);
 
-  gap: 10px;
-
-  width: 100%;
-
-  max-width: 430px;
-
-  margin: 0 auto;
-
-  padding: 14px;
-
-  border-radius: 18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #684575,
-      #7d5886
-    );
-
-  box-shadow:
-    0 8px 22px
-    rgba(80,40,90,0.18);
+  gap: 9px;
 
 }
-
-
-/* =====================================================
-   FRAME CHOICE
-===================================================== */
 
 .frame-choice {
 
@@ -370,49 +445,50 @@ body {
 
   padding: 4px;
 
-  border: 1px solid
-    rgba(255,255,255,0.45);
+  border:
+    1px solid
+    rgba(255,255,255,0.40);
 
   border-radius: 10px;
 
   background:
-    rgba(255,255,255,0.18);
+    rgba(255,255,255,0.13);
 
   cursor: pointer;
 
   transition:
     transform .2s ease,
-    border .2s ease,
-    box-shadow .2s ease;
+    box-shadow .2s ease,
+    background .2s ease;
 
 }
-
 
 .frame-choice:hover {
 
   transform:
-    translateY(-2px);
+    translateY(-3px);
+
+  background:
+    rgba(255,255,255,0.22);
 
 }
 
-
 .frame-choice.active {
 
-  border: 2px solid
-    #ffffff;
+  border:
+    2px solid white;
 
   background:
     rgba(255,255,255,0.28);
 
   box-shadow:
-    0 5px 18px
-    rgba(30,15,35,0.25);
+    0 6px 18px
+    rgba(30,15,40,0.28);
 
   transform:
-    translateY(-2px);
+    translateY(-3px);
 
 }
-
 
 .frame-choice img {
 
@@ -428,24 +504,24 @@ body {
 
 }
 
-
 .frame-number {
 
   position: absolute;
 
-  bottom: 7px;
-
   left: 50%;
+
+  bottom: 7px;
 
   transform:
     translateX(-50%);
 
-  padding: 3px 7px;
+  padding:
+    3px 7px;
 
   border-radius: 20px;
 
   background:
-    rgba(60,40,65,0.72);
+    rgba(48,32,53,0.75);
 
   color: white;
 
@@ -459,7 +535,6 @@ body {
 
 }
 
-
 .selected-mark {
 
   position: absolute;
@@ -470,11 +545,12 @@ body {
 
   display: none;
 
-  padding: 4px 6px;
+  padding:
+    4px 6px;
 
   border-radius: 20px;
 
-  background: #ffffff;
+  background: white;
 
   color: #684575;
 
@@ -482,14 +558,11 @@ body {
     Arial,
     sans-serif;
 
-  font-size: 7px;
+  font-size: 8px;
 
   font-weight: bold;
 
-  letter-spacing: 1px;
-
 }
-
 
 .frame-choice.active
 .selected-mark {
@@ -500,7 +573,7 @@ body {
 
 
 /* =====================================================
-   MAIN BUTTON
+   CAPTURE BUTTON
 ===================================================== */
 
 .main-button {
@@ -513,14 +586,18 @@ body {
 
   margin: 18px auto 0;
 
-  padding: 16px 20px;
+  padding: 17px 20px;
 
   border: none;
 
   border-radius: 50px;
 
   background:
-    #684575;
+    linear-gradient(
+      135deg,
+      #684575,
+      #795484
+    );
 
   color: white;
 
@@ -530,24 +607,25 @@ body {
 
   font-size: 15px;
 
-  letter-spacing: 1px;
+  letter-spacing: 1.3px;
 
   box-shadow:
-    0 7px 20px
-    rgba(100,60,110,0.22);
+    0 8px 23px
+    rgba(96,55,105,0.25);
 
   cursor: pointer;
 
-}
+  transition:
+    transform .15s ease;
 
+}
 
 .main-button:active {
 
   transform:
-    scale(0.98);
+    scale(.98);
 
 }
-
 
 .main-button:disabled {
 
@@ -557,7 +635,7 @@ body {
 
 
 /* =====================================================
-   CAPTION AREA
+   CAPTION
 ===================================================== */
 
 .caption-box {
@@ -570,37 +648,36 @@ body {
 
   margin: 22px auto 0;
 
-  padding: 18px;
+  padding: 20px 18px;
 
-  border: 1px solid
+  border:
+    1px solid
     #e0d4e2;
 
-  border-radius: 16px;
+  border-radius: 17px;
 
   background:
-    rgba(255,255,255,0.72);
+    rgba(255,255,255,0.78);
 
   box-shadow:
     0 8px 25px
-    rgba(70,40,75,0.07);
+    rgba(70,40,75,0.08);
 
 }
-
 
 .caption-title {
 
-  margin-bottom: 10px;
-
-  font-size: 15px;
+  margin-bottom: 5px;
 
   color: #5b4161;
 
-}
+  font-size: 16px;
 
+}
 
 .caption-subtitle {
 
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 
   font-family:
     Arial,
@@ -612,18 +689,19 @@ body {
 
 }
 
-
 #captionInput {
 
   width: 100%;
 
-  min-height: 90px;
+  min-height: 92px;
 
-  padding: 13px 14px;
+  padding:
+    13px 14px;
 
   resize: vertical;
 
-  border: 1px solid
+  border:
+    1px solid
     #d8c9dc;
 
   border-radius: 11px;
@@ -642,14 +720,12 @@ body {
 
 }
 
-
 #captionInput:focus {
 
   border-color:
     #76527f;
 
 }
-
 
 .caption-counter {
 
@@ -668,9 +744,61 @@ body {
 }
 
 
-.caption-button {
+/* =====================================================
+   ACTION BUTTON
+===================================================== */
 
-  margin-top: 10px;
+.action-button {
+
+  width: 100%;
+
+  max-width: 430px;
+
+  margin: 10px auto 0;
+
+  padding: 14px;
+
+  border:
+    1px solid
+    #d8c9dc;
+
+  border-radius: 12px;
+
+  background: white;
+
+  color: #684575;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+}
+
+.action-button.primary {
+
+  background:
+    linear-gradient(
+      135deg,
+      #684575,
+      #795484
+    );
+
+  border-color:
+    #684575;
+
+  color: white;
+
+  box-shadow:
+    0 7px 18px
+    rgba(100,55,110,0.20);
 
 }
 
@@ -691,10 +819,9 @@ body {
 
 }
 
-
 .result-title {
 
-  margin-bottom: 13px;
+  margin-bottom: 7px;
 
   font-family:
     Arial,
@@ -708,6 +835,15 @@ body {
 
 }
 
+.result-subtitle {
+
+  margin-bottom: 13px;
+
+  font-size: 13px;
+
+  color: #6d5a72;
+
+}
 
 #photoResult {
 
@@ -718,57 +854,57 @@ body {
   border-radius: 18px;
 
   box-shadow:
-    0 12px 35px
-    rgba(60,30,70,0.20);
+    0 13px 38px
+    rgba(60,30,70,0.21);
 
 }
 
 
 /* =====================================================
-   RESULT BUTTONS
+   FOOTER
 ===================================================== */
 
-.action-button {
+.footer {
 
-  width: 100%;
+  margin-top: 34px;
 
-  max-width: 430px;
+  color: #99899c;
 
-  margin: 10px auto 0;
+}
 
-  padding: 14px;
+.footer-message {
 
-  border: 1px solid
-    #d8c9dc;
+  font-size: 12px;
 
-  border-radius: 12px;
+  font-style: italic;
 
-  background: white;
+}
 
-  color: #684575;
+.footer-names {
+
+  margin-top: 7px;
 
   font-family:
     Arial,
     sans-serif;
 
-  font-size: 12px;
+  font-size: 9px;
 
-  letter-spacing: 1px;
-
-  cursor: pointer;
+  letter-spacing: 2px;
 
 }
 
+.footer-date {
 
-.action-button.primary {
+  margin-top: 4px;
 
-  background:
-    #684575;
+  font-family:
+    Arial,
+    sans-serif;
 
-  border-color:
-    #684575;
+  font-size: 8px;
 
-  color: white;
+  letter-spacing: 2px;
 
 }
 
@@ -780,6 +916,45 @@ body {
 #canvas {
 
   display: none;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (
+  max-width: 360px
+) {
+
+  body {
+
+    padding-left: 11px;
+
+    padding-right: 11px;
+
+  }
+
+  .names {
+
+    font-size: 26px;
+
+  }
+
+  .frame-panel {
+
+    padding-left: 10px;
+
+    padding-right: 10px;
+
+  }
+
+  .frame-selector {
+
+    gap: 6px;
+
+  }
 
 }
 
@@ -798,8 +973,8 @@ body {
 <header class="header">
 
 
-<div class="small-title">
-Wedding Photobooth
+<div class="eyebrow">
+Wedding Photo Experience
 </div>
 
 
@@ -808,12 +983,19 @@ Ginanjar & Puteri
 </h1>
 
 
+<div class="subtitle">
+Our Wedding Celebration
+</div>
+
+
 <div class="date">
 31 • 08 • 2026
 </div>
 
 
-<div class="divider"></div>
+<div class="love-divider">
+— ♡ —
+</div>
 
 
 </header>
@@ -867,11 +1049,19 @@ Memuat kamera...
 
 
 <!-- =====================================================
-     FRAME SELECTOR
+     FRAME PANEL
 ===================================================== -->
 
-<div class="section-label">
+<div class="frame-panel">
+
+
+<div class="frame-panel-title">
 Choose Your Frame
+</div>
+
+
+<div class="frame-panel-subtitle">
+Pilih bingkai favoritmu
 </div>
 
 
@@ -975,17 +1165,19 @@ Choose Your Frame
 
 </div>
 
+</div>
+
 
 
 <!-- =====================================================
-     TAKE PHOTO
+     CAPTURE
 ===================================================== -->
 
 <button
   id="takePhoto"
   class="main-button">
 
-📸 &nbsp; CAPTURE MOMENT
+📸 &nbsp; ABADIKAN MOMEN
 
 </button>
 
@@ -1001,19 +1193,19 @@ Choose Your Frame
 
 
 <div class="caption-title">
-A little note for Ginanjar & Puteri
+Leave a Little Note
 </div>
 
 
 <div class="caption-subtitle">
-Tinggalkan pesan kecil untuk pengantin
+Tulis pesan untuk Ginanjar & Puteri
 </div>
 
 
 <textarea
   id="captionInput"
   maxlength="120"
-  placeholder="Semoga bahagia selalu dan menjadi keluarga yang sakinah 🤍">
+  placeholder="Semoga bahagia selalu dan menjadi keluarga yang penuh cinta 🤍">
 </textarea>
 
 
@@ -1023,7 +1215,7 @@ Tinggalkan pesan kecil untuk pengantin
 0
 </span>
 
-&nbsp;/&nbsp; 120
+&nbsp;/&nbsp;120
 
 </div>
 
@@ -1053,18 +1245,14 @@ YOUR MOMENT
 </div>
 
 
+<div class="result-subtitle">
+A memory to keep from our special day 🤍
+</div>
+
+
 <img
   id="photoResult"
   alt="Hasil foto">
-
-
-<button
-  id="download"
-  class="action-button">
-
-↓ &nbsp; DOWNLOAD FOTO
-
-</button>
 
 
 <button
@@ -1072,6 +1260,15 @@ YOUR MOMENT
   class="action-button primary">
 
 📸 &nbsp; POST TO INSTAGRAM STORY
+
+</button>
+
+
+<button
+  id="download"
+  class="action-button">
+
+↓ &nbsp; DOWNLOAD FOTO
 
 </button>
 
@@ -1089,6 +1286,32 @@ YOUR MOMENT
 
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+
+<div class="footer-message">
+Thank you for celebrating with us 🤍
+</div>
+
+
+<div class="footer-names">
+GINANJAR & PUTERI
+</div>
+
+
+<div class="footer-date">
+31 • 08 • 2026
+</div>
+
+
+</footer>
+
+
+
 <canvas id="canvas"></canvas>
 
 
@@ -1096,7 +1319,7 @@ YOUR MOMENT
 <script>
 
 /* =====================================================
-   ELEMENT
+   ELEMENTS
 ===================================================== */
 
 const video =
@@ -1166,7 +1389,8 @@ const frame4Button =
 
 let stream = null;
 
-let facingMode = "user";
+let facingMode =
+  "user";
 
 let selectedFrame =
   "frame01.png";
@@ -1191,7 +1415,6 @@ function selectFrame(
 
   selectedFrame =
     frame;
-
 
   frameOverlay.src =
     frame;
@@ -1379,6 +1602,31 @@ async function() {
    COUNTDOWN
 ===================================================== */
 
+function showCountdownNumber(
+  number
+) {
+
+  countdown.style.display =
+    "block";
+
+
+  countdown.innerText =
+    number;
+
+
+  countdown.style.animation =
+    "none";
+
+
+  void countdown.offsetWidth;
+
+
+  countdown.style.animation =
+    "countdownPop .9s ease-out";
+
+}
+
+
 takePhoto.onclick =
 function() {
 
@@ -1389,12 +1637,9 @@ function() {
     true;
 
 
-  countdown.style.display =
-    "block";
-
-
-  countdown.innerText =
-    number;
+  showCountdownNumber(
+    number
+  );
 
 
   const timer =
@@ -1404,10 +1649,13 @@ function() {
         number--;
 
 
-        if (number > 0) {
+        if (
+          number > 0
+        ) {
 
-          countdown.innerText =
-            number;
+          showCountdownNumber(
+            number
+          );
 
         }
 
@@ -1416,13 +1664,14 @@ function() {
           clearInterval(timer);
 
 
-          countdown.innerText =
-            "📸";
+          showCountdownNumber(
+            "♡"
+          );
 
 
           setTimeout(
             capturePhoto,
-            300
+            350
           );
 
         }
@@ -1626,6 +1875,17 @@ function finishPhoto() {
 
   captionCounter.innerText =
     "0";
+
+
+  window.scrollTo({
+
+    top:
+      document.body.scrollHeight,
+
+    behavior:
+      "smooth"
+
+  });
 
 
   if (stream) {
@@ -1983,7 +2243,7 @@ async function() {
           "Ginanjar & Puteri",
 
         text:
-          "Wedding Photo • 31.08.2026"
+          "Wedding Photo Experience • 31.08.2026"
 
       });
 
@@ -1992,7 +2252,7 @@ async function() {
     else {
 
       alert(
-        "Perangkat ini belum mendukung berbagi foto. Silakan download foto terlebih dahulu."
+        "Perangkat ini belum mendukung berbagi foto langsung. Silakan download foto terlebih dahulu."
       );
 
     }
@@ -2031,11 +2291,23 @@ async function() {
     false;
 
 
+  window.scrollTo({
+
+    top: 0,
+
+    behavior:
+      "smooth"
+
+  });
+
+
   await startCamera();
 
 };
 
 </script>
 
+
 </body>
+
 </html>
