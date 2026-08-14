@@ -4,125 +4,144 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
-<title>Ganjar & Puteri | 31.08.2026</title>
+<title>Ginanjar & Puteri | 31.08.2026</title>
+
 
 <style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
 
 * {
   box-sizing: border-box;
 }
 
+
 body {
 
   margin: 0;
-  padding: 18px;
 
   min-height: 100vh;
 
-  background: #f3edf5;
+  padding: 24px 16px 40px;
 
-  font-family: Georgia, serif;
+  background:
+    radial-gradient(
+      circle at top,
+      #fffdfd 0%,
+      #f8f1f8 45%,
+      #eee4ef 100%
+    );
+
+  color: #3d3042;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
   text-align: center;
 
-  color: #382d3d;
 }
 
 
-h1 {
+/* =====================================================
+   HEADER
+===================================================== */
 
-  margin: 5px 0;
+.header {
 
-  font-size: 25px;
+  max-width: 500px;
 
-  letter-spacing: 2px;
+  margin: 0 auto 22px;
+
 }
 
 
-.subtitle {
+.small-title {
 
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 
-  font-size: 14px;
+  font-family:
+    Arial,
+    sans-serif;
 
-  letter-spacing: 1px;
+  font-size: 10px;
+
+  letter-spacing: 4px;
+
+  color: #8a738d;
+
+  text-transform: uppercase;
+
 }
 
 
-/* =========================
-   FRAME SELECTOR
-========================= */
-
-.frame-title {
-
-  margin-top: 10px;
-
-  margin-bottom: 10px;
-
-  font-size: 14px;
-
-  letter-spacing: 1px;
-}
-
-
-.frame-buttons {
-
-  display: flex;
-
-  justify-content: center;
-
-  gap: 7px;
-
-  width: 100%;
-
-  max-width: 420px;
-
-  margin: 0 auto 15px;
-}
-
-
-.frame-button {
-
-  flex: 1;
-
-  width: auto;
+.names {
 
   margin: 0;
 
-  padding: 11px 4px;
+  font-size: 29px;
 
-  border-radius: 10px;
+  font-weight: normal;
 
-  background: white;
+  letter-spacing: 2px;
 
-  color: #684575;
+  color: #4b3651;
 
-  border: 2px solid #d9c8df;
-
-  box-shadow: none;
-
-  font-size: 12px;
-
-  cursor: pointer;
 }
 
 
-.frame-button.active {
+.date {
 
-  background: #684575;
+  margin-top: 8px;
 
-  color: white;
+  font-family:
+    Arial,
+    sans-serif;
 
-  border-color: #684575;
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  color: #806d86;
+
 }
 
 
-/* =========================
-   CAMERA
-========================= */
+.divider {
+
+  width: 55px;
+
+  height: 1px;
+
+  margin: 15px auto 0;
+
+  background: #bba8bf;
+
+}
+
+
+/* =====================================================
+   CAMERA CARD
+===================================================== */
+
+.camera-wrapper {
+
+  width: 100%;
+
+  max-width: 430px;
+
+  margin: 0 auto;
+
+}
+
 
 .camera-box {
 
@@ -130,20 +149,18 @@ h1 {
 
   width: 100%;
 
-  max-width: 420px;
-
   aspect-ratio: 9 / 16;
-
-  margin: auto;
-
-  background: #111;
 
   overflow: hidden;
 
-  border-radius: 18px;
+  background: #111;
+
+  border-radius: 20px;
 
   box-shadow:
-    0 8px 28px rgba(60,30,70,0.25);
+    0 15px 40px
+    rgba(65, 40, 70, 0.20);
+
 }
 
 
@@ -160,6 +177,7 @@ h1 {
   object-fit: cover;
 
   z-index: 1;
+
 }
 
 
@@ -178,49 +196,53 @@ h1 {
   z-index: 10;
 
   pointer-events: none;
+
 }
 
 
-/* =========================
-   CAMERA BUTTON
-========================= */
+/* =====================================================
+   CAMERA SWITCH
+===================================================== */
 
 #switchCamera {
 
   position: absolute;
 
-  top: 24px;
+  top: 18px;
 
-  right: 24px;
+  right: 18px;
 
-  z-index: 20;
+  z-index: 30;
 
-  width: 46px;
+  width: 42px;
 
-  height: 46px;
+  height: 42px;
 
   margin: 0;
 
   padding: 0;
 
-  border: none;
+  border: 1px solid
+    rgba(255,255,255,0.5);
 
   border-radius: 50%;
 
   background:
-    rgba(65,35,75,0.65);
+    rgba(50,35,55,0.55);
 
   color: white;
 
-  font-size: 20px;
+  font-size: 18px;
 
-  cursor: pointer;
+  backdrop-filter:
+    blur(5px);
+
 }
 
 
-/* =========================
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 #countdown {
 
@@ -233,7 +255,13 @@ h1 {
   transform:
     translate(-50%, -50%);
 
-  z-index: 30;
+  z-index: 40;
+
+  display: none;
+
+  font-family:
+    Georgia,
+    serif;
 
   font-size: 90px;
 
@@ -242,52 +270,266 @@ h1 {
   color: white;
 
   text-shadow:
-    0 3px 15px #3b1748;
+    0 3px 20px
+    rgba(40,20,50,0.8);
 
-  display: none;
 }
 
 
-/* =========================
-   BUTTON
-========================= */
+/* =====================================================
+   CAMERA INFO
+===================================================== */
 
-button {
+#resolutionInfo {
+
+  margin: 10px 0 0;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  color: #99889c;
+
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-label {
+
+  margin:
+
+    24px auto 12px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: #806d86;
+
+  text-transform: uppercase;
+
+}
+
+
+/* =====================================================
+   FRAME SELECTOR
+===================================================== */
+
+.frame-selector {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 9px;
 
   width: 100%;
 
-  max-width: 420px;
+  max-width: 430px;
 
-  margin: 12px auto 0;
+  margin: 0 auto;
 
-  padding: 14px;
+}
 
-  border: none;
 
-  border-radius: 11px;
+.frame-choice {
 
-  background: #684575;
+  position: relative;
 
-  color: white;
+  padding: 4px;
 
-  font-size: 15px;
+  border: 1px solid
+    #d8cadb;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.75);
 
   cursor: pointer;
 
+  transition:
+    transform .2s ease,
+    border .2s ease,
+    box-shadow .2s ease;
+
+}
+
+
+.frame-choice:hover {
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+.frame-choice.active {
+
+  border: 2px solid
+    #76527f;
+
   box-shadow:
-    0 4px 12px rgba(80,40,90,0.2);
+    0 5px 16px
+    rgba(100,60,110,0.18);
+
 }
 
 
-button:active {
+.frame-choice img {
 
-  transform: scale(0.98);
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 9 / 16;
+
+  object-fit: cover;
+
+  border-radius: 7px;
+
 }
 
 
-/* =========================
-   CAPTION
-========================= */
+.frame-number {
+
+  position: absolute;
+
+  bottom: 7px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  padding: 3px 7px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(60,40,65,0.72);
+
+  color: white;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+
+}
+
+
+.selected-mark {
+
+  position: absolute;
+
+  top: 7px;
+
+  right: 7px;
+
+  display: none;
+
+  padding: 4px 6px;
+
+  border-radius: 20px;
+
+  background: #76527f;
+
+  color: white;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 7px;
+
+  letter-spacing: 1px;
+
+}
+
+
+.frame-choice.active
+.selected-mark {
+
+  display: block;
+
+}
+
+
+/* =====================================================
+   MAIN BUTTON
+===================================================== */
+
+.main-button {
+
+  display: block;
+
+  width: 100%;
+
+  max-width: 430px;
+
+  margin: 18px auto 0;
+
+  padding: 16px 20px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  background:
+    #684575;
+
+  color: white;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 15px;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 7px 20px
+    rgba(100,60,110,0.22);
+
+  cursor: pointer;
+
+}
+
+
+.main-button:active {
+
+  transform:
+    scale(0.98);
+
+}
+
+
+.main-button:disabled {
+
+  opacity: .6;
+
+}
+
+
+/* =====================================================
+   CAPTION AREA
+===================================================== */
 
 .caption-box {
 
@@ -295,19 +537,50 @@ button:active {
 
   width: 100%;
 
-  max-width: 420px;
+  max-width: 430px;
 
-  margin: 18px auto 0;
+  margin: 22px auto 0;
+
+  padding: 18px;
+
+  border: 1px solid
+    #e0d4e2;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255,255,255,0.72);
+
+  box-shadow:
+    0 8px 25px
+    rgba(70,40,75,0.07);
+
 }
 
 
 .caption-title {
 
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 
-  font-size: 14px;
+  font-size: 15px;
 
-  letter-spacing: 1px;
+  color: #5b4161;
+
+}
+
+
+.caption-subtitle {
+
+  margin-bottom: 12px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  color: #9a899c;
+
 }
 
 
@@ -317,47 +590,65 @@ button:active {
 
   min-height: 90px;
 
-  padding: 13px;
+  padding: 13px 14px;
 
   resize: vertical;
 
-  border: 1px solid #d6c5dc;
+  border: 1px solid
+    #d8c9dc;
 
   border-radius: 11px;
 
+  outline: none;
+
   background: white;
 
-  color: #382d3d;
+  color: #44364a;
 
-  font-family: Georgia, serif;
+  font-family:
+    Georgia,
+    serif;
 
   font-size: 14px;
 
-  outline: none;
 }
 
 
 #captionInput:focus {
 
-  border-color: #684575;
+  border-color:
+    #76527f;
+
 }
 
 
 .caption-counter {
 
-  text-align: right;
-
   margin-top: 5px;
 
-  font-size: 11px;
+  text-align: right;
 
-  color: #806d86;
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 9px;
+
+  color: #9a899c;
+
 }
 
 
-/* =========================
+.caption-button {
+
+  margin-top: 10px;
+
+}
+
+
+/* =====================================================
    RESULT
-========================= */
+===================================================== */
 
 #result {
 
@@ -365,44 +656,104 @@ button:active {
 
   width: 100%;
 
-  max-width: 420px;
+  max-width: 430px;
 
-  margin: 20px auto;
+  margin: 25px auto 0;
+
+}
+
+
+.result-title {
+
+  margin-bottom: 13px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: #806d86;
+
 }
 
 
 #photoResult {
 
+  display: block;
+
   width: 100%;
 
-  border-radius: 16px;
+  border-radius: 18px;
 
   box-shadow:
-    0 6px 22px rgba(60,30,70,0.22);
+    0 12px 35px
+    rgba(60,30,70,0.20);
+
 }
 
 
-/* =========================
-   RESOLUTION
-========================= */
+/* =====================================================
+   RESULT BUTTONS
+===================================================== */
 
-#resolutionInfo {
+.action-button {
 
-  margin-top: 8px;
+  width: 100%;
 
-  font-size: 11px;
+  max-width: 430px;
 
-  color: #806d86;
+  margin: 10px auto 0;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: white;
+
+  color: #684575;
+
+  border: 1px solid
+    #d8c9dc;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
 }
 
 
-/* =========================
+.action-button.primary {
+
+  background:
+    #684575;
+
+  border-color:
+    #684575;
+
+  color: white;
+
+}
+
+
+/* =====================================================
    CANVAS
-========================= */
+===================================================== */
 
 #canvas {
 
   display: none;
+
 }
 
 </style>
@@ -413,61 +764,40 @@ button:active {
 <body>
 
 
-<h1>
-Wedding Photo
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+
+<div class="small-title">
+Wedding Photobooth
+</div>
+
+
+<h1 class="names">
+Ginanjar & Puteri
 </h1>
 
 
-<div class="subtitle">
-Ganjar & Puteri • 31.08.2026
+<div class="date">
+31 • 08 • 2026
 </div>
 
 
-<div class="frame-title">
-Pilih Frame
-</div>
+<div class="divider"></div>
 
 
-<div class="frame-buttons">
+</header>
 
 
-<button
-  class="frame-button active"
-  id="frame1Button">
 
-🌸 Frame 1
+<!-- =====================================================
+     CAMERA
+===================================================== -->
 
-</button>
-
-
-<button
-  class="frame-button"
-  id="frame2Button">
-
-💜 Frame 2
-
-</button>
-
-
-<button
-  class="frame-button"
-  id="frame3Button">
-
-🌿 Frame 3
-
-</button>
-
-
-<button
-  class="frame-button"
-  id="frame4Button">
-
-✨ Frame 4
-
-</button>
-
-
-</div>
+<div class="camera-wrapper">
 
 
 <div class="camera-box">
@@ -489,7 +819,7 @@ Pilih Frame
 <button
   id="switchCamera">
 
-🔄
+↻
 
 </button>
 
@@ -505,16 +835,138 @@ Memuat kamera...
 </div>
 
 
-<button id="takePhoto">
+</div>
 
-📸 AMBIL FOTO
+
+
+<!-- =====================================================
+     FRAME SELECTOR
+===================================================== -->
+
+<div class="section-label">
+Choose Your Frame
+</div>
+
+
+<div class="frame-selector">
+
+
+<div
+  class="frame-choice active"
+  id="frame1Button">
+
+
+<img
+  src="frame01.png"
+  alt="Frame 1">
+
+
+<div class="frame-number">
+01
+</div>
+
+
+<div class="selected-mark">
+✓
+</div>
+
+
+</div>
+
+
+
+<div
+  class="frame-choice"
+  id="frame2Button">
+
+
+<img
+  src="frame02.png"
+  alt="Frame 2">
+
+
+<div class="frame-number">
+02
+</div>
+
+
+<div class="selected-mark">
+✓
+</div>
+
+
+</div>
+
+
+
+<div
+  class="frame-choice"
+  id="frame3Button">
+
+
+<img
+  src="frame03.png"
+  alt="Frame 3">
+
+
+<div class="frame-number">
+03
+</div>
+
+
+<div class="selected-mark">
+✓
+</div>
+
+
+</div>
+
+
+
+<div
+  class="frame-choice"
+  id="frame4Button">
+
+
+<img
+  src="frame04.png"
+  alt="Frame 4">
+
+
+<div class="frame-number">
+04
+</div>
+
+
+<div class="selected-mark">
+✓
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     TAKE PHOTO
+===================================================== -->
+
+<button
+  id="takePhoto"
+  class="main-button">
+
+📸 &nbsp; CAPTURE MOMENT
 
 </button>
 
 
-<!-- =========================
+
+<!-- =====================================================
      CAPTION
-========================= -->
+===================================================== -->
 
 <div
   class="caption-box"
@@ -522,31 +974,38 @@ Memuat kamera...
 
 
 <div class="caption-title">
+A little note for Ginanjar & Puteri
+</div>
 
-💌 Tulis pesan untuk Ganjar & Puteri
 
+<div class="caption-subtitle">
+Tinggalkan pesan kecil untuk pengantin
 </div>
 
 
 <textarea
   id="captionInput"
   maxlength="120"
-  placeholder="Contoh: Semoga bahagia selalu 🤍">
+  placeholder="Semoga bahagia selalu dan menjadi keluarga yang sakinah 🤍">
 </textarea>
 
 
 <div class="caption-counter">
 
-<span id="captionCounter">0</span>
-/
-120
+<span id="captionCounter">
+0
+</span>
+
+&nbsp;/&nbsp; 120
 
 </div>
 
 
-<button id="applyCaption">
+<button
+  id="applyCaption"
+  class="action-button primary">
 
-💌 TAMBAHKAN PESAN KE FOTO
+💌 &nbsp; TAMBAHKAN PESAN
 
 </button>
 
@@ -554,11 +1013,17 @@ Memuat kamera...
 </div>
 
 
-<!-- =========================
+
+<!-- =====================================================
      RESULT
-========================= -->
+===================================================== -->
 
 <div id="result">
+
+
+<div class="result-title">
+YOUR MOMENT
+</div>
 
 
 <img
@@ -566,23 +1031,29 @@ Memuat kamera...
   alt="Hasil foto">
 
 
-<button id="download">
+<button
+  id="download"
+  class="action-button">
 
-⬇️ DOWNLOAD FOTO
-
-</button>
-
-
-<button id="share">
-
-📸 POST TO INSTAGRAM STORY
+↓ &nbsp; DOWNLOAD FOTO
 
 </button>
 
 
-<button id="retake">
+<button
+  id="share"
+  class="action-button primary">
 
-🔄 FOTO ULANG
+📸 &nbsp; POST TO INSTAGRAM STORY
+
+</button>
+
+
+<button
+  id="retake"
+  class="action-button">
+
+↻ &nbsp; FOTO ULANG
 
 </button>
 
@@ -590,123 +1061,143 @@ Memuat kamera...
 </div>
 
 
+
 <canvas id="canvas"></canvas>
+
 
 
 <script>
 
 
-/* =========================
+/* =====================================================
    ELEMENT
-========================= */
+===================================================== */
 
 const video =
   document.getElementById("camera");
 
+
 const takePhoto =
   document.getElementById("takePhoto");
+
 
 const switchCamera =
   document.getElementById("switchCamera");
 
+
 const countdown =
   document.getElementById("countdown");
+
 
 const canvas =
   document.getElementById("canvas");
 
+
 const result =
   document.getElementById("result");
+
 
 const photoResult =
   document.getElementById("photoResult");
 
+
 const download =
   document.getElementById("download");
+
 
 const share =
   document.getElementById("share");
 
+
 const retake =
   document.getElementById("retake");
+
 
 const frameOverlay =
   document.getElementById("frameOverlay");
 
+
 const resolutionInfo =
   document.getElementById("resolutionInfo");
+
 
 const captionBox =
   document.getElementById("captionBox");
 
+
 const captionInput =
   document.getElementById("captionInput");
+
 
 const captionCounter =
   document.getElementById("captionCounter");
 
+
 const applyCaption =
   document.getElementById("applyCaption");
+
 
 const frame1Button =
   document.getElementById("frame1Button");
 
+
 const frame2Button =
   document.getElementById("frame2Button");
 
+
 const frame3Button =
   document.getElementById("frame3Button");
+
 
 const frame4Button =
   document.getElementById("frame4Button");
 
 
-/* =========================
-   CAMERA
-========================= */
+/* =====================================================
+   SETTINGS
+===================================================== */
 
 let stream = null;
 
 let facingMode = "user";
 
-
-/* =========================
-   FRAME
-========================= */
-
 let selectedFrame =
   "frame01.png";
 
 
-/* =========================
-   FINAL SIZE
-========================= */
-
-const FINAL_WIDTH = 1080;
-
-const FINAL_HEIGHT = 1920;
+const FINAL_WIDTH =
+  1080;
 
 
-/* =========================
+const FINAL_HEIGHT =
+  1920;
+
+
+/* =====================================================
    FRAME SELECTOR
-========================= */
+===================================================== */
 
 function selectFrame(
   frame,
-  activeButton
+  element
 ) {
 
-  selectedFrame = frame;
+  selectedFrame =
+    frame;
 
-  frameOverlay.src = frame;
+
+  frameOverlay.src =
+    frame;
 
 
   document
-    .querySelectorAll(".frame-button")
+    .querySelectorAll(
+      ".frame-choice"
+    )
     .forEach(
-      button => {
+      item => {
 
-        button.classList.remove(
+        item.classList.remove(
           "active"
         );
 
@@ -714,7 +1205,7 @@ function selectFrame(
     );
 
 
-  activeButton.classList.add(
+  element.classList.add(
     "active"
   );
 
@@ -765,27 +1256,30 @@ function() {
 };
 
 
-/* =========================
-   START CAMERA
-========================= */
+/* =====================================================
+   CAMERA
+===================================================== */
 
 async function startCamera() {
 
   try {
+
 
     if (stream) {
 
       stream
         .getTracks()
         .forEach(
-          track => track.stop()
+          track =>
+            track.stop()
         );
 
     }
 
 
     stream =
-      await navigator.mediaDevices
+      await navigator
+        .mediaDevices
         .getUserMedia({
 
           video: {
@@ -826,7 +1320,7 @@ async function startCamera() {
 
 
     resolutionInfo.innerText =
-      "Kamera: " +
+
       video.videoWidth +
       " × " +
       video.videoHeight;
@@ -837,6 +1331,7 @@ async function startCamera() {
   catch(error) {
 
     console.error(error);
+
 
     alert(
       "Kamera tidak dapat digunakan. Silakan izinkan akses kamera."
@@ -853,16 +1348,19 @@ window.addEventListener(
 );
 
 
-/* =========================
+/* =====================================================
    SWITCH CAMERA
-========================= */
+===================================================== */
 
 switchCamera.onclick =
 async function() {
 
   facingMode =
+
     facingMode === "user"
+
       ? "environment"
+
       : "user";
 
 
@@ -871,12 +1369,13 @@ async function() {
 };
 
 
-/* =========================
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 takePhoto.onclick =
 function() {
+
 
   let number = 3;
 
@@ -897,6 +1396,7 @@ function() {
     setInterval(
       function() {
 
+
         number--;
 
 
@@ -908,6 +1408,7 @@ function() {
         }
 
         else {
+
 
           clearInterval(timer);
 
@@ -923,6 +1424,7 @@ function() {
 
         }
 
+
       },
       1000
     );
@@ -930,20 +1432,15 @@ function() {
 };
 
 
-/* =========================
-   CAPTURE
-========================= */
+/* =====================================================
+   CAPTURE PHOTO
+===================================================== */
 
 function capturePhoto() {
 
+
   countdown.style.display =
     "none";
-
-
-  /*
-    Kita tetap membuat hasil
-    1080 × 1920.
-  */
 
 
   canvas.width =
@@ -959,10 +1456,9 @@ function capturePhoto() {
 
 
   /*
-    AREA FOTO
-
-    Caption akan mengambil
-    ruang dari bagian bawah.
+     Ruang caption
+     tetap berada di dalam
+     1080 × 1920.
   */
 
   const captionArea =
@@ -974,17 +1470,17 @@ function capturePhoto() {
     captionArea;
 
 
-  const targetRatio =
-    FINAL_WIDTH /
-    photoHeight;
-
-
   const sourceWidth =
     video.videoWidth;
 
 
   const sourceHeight =
     video.videoHeight;
+
+
+  const targetRatio =
+    FINAL_WIDTH /
+    photoHeight;
 
 
   let cropWidth =
@@ -1027,7 +1523,7 @@ function capturePhoto() {
 
 
   /*
-    BACKGROUND
+     Background
   */
 
   ctx.fillStyle =
@@ -1035,15 +1531,17 @@ function capturePhoto() {
 
 
   ctx.fillRect(
+
     0,
     0,
     FINAL_WIDTH,
     FINAL_HEIGHT
+
   );
 
 
   /*
-    CAMERA
+     CAMERA
   */
 
   ctx.drawImage(
@@ -1066,7 +1564,7 @@ function capturePhoto() {
 
 
   /*
-    FRAME
+     FRAME
   */
 
   const frame =
@@ -1075,6 +1573,7 @@ function capturePhoto() {
 
   frame.onload =
   function() {
+
 
     ctx.drawImage(
 
@@ -1097,8 +1596,9 @@ function capturePhoto() {
   frame.onerror =
   function() {
 
+
     alert(
-      "Frame tidak ditemukan. Pastikan nama file frame sama persis."
+      "Frame tidak ditemukan. Pastikan nama file sama persis."
     );
 
 
@@ -1114,11 +1614,12 @@ function capturePhoto() {
 }
 
 
-/* =========================
-   FINISH
-========================= */
+/* =====================================================
+   FINISH PHOTO
+===================================================== */
 
 function finishPhoto() {
+
 
   photoResult.src =
     canvas.toDataURL(
@@ -1152,7 +1653,8 @@ function finishPhoto() {
     stream
       .getTracks()
       .forEach(
-        track => track.stop()
+        track =>
+          track.stop()
       );
 
   }
@@ -1160,9 +1662,9 @@ function finishPhoto() {
 }
 
 
-/* =========================
-   COUNTER
-========================= */
+/* =====================================================
+   CAPTION COUNTER
+===================================================== */
 
 captionInput.addEventListener(
   "input",
@@ -1175,12 +1677,13 @@ captionInput.addEventListener(
 );
 
 
-/* =========================
-   CAPTION
-========================= */
+/* =====================================================
+   ADD CAPTION
+===================================================== */
 
 applyCaption.onclick =
 function() {
+
 
   const caption =
     captionInput.value.trim();
@@ -1197,14 +1700,6 @@ function() {
   }
 
 
-  /*
-    Canvas sudah 1080 × 1920.
-
-    Caption ditempatkan
-    di area 270px paling bawah.
-  */
-
-
   const ctx =
     canvas.getContext("2d");
 
@@ -1219,7 +1714,7 @@ function() {
 
 
   /*
-    BACKGROUND CAPTION
+     BACKGROUND
   */
 
   ctx.fillStyle =
@@ -1240,7 +1735,7 @@ function() {
 
 
   /*
-    GARIS
+     DIVIDER
   */
 
   ctx.strokeStyle =
@@ -1270,7 +1765,7 @@ function() {
 
 
   /*
-    TITLE
+     TITLE
   */
 
   ctx.textAlign =
@@ -1287,7 +1782,7 @@ function() {
 
   ctx.fillText(
 
-    "A little note for Ganjar & Puteri",
+    "A little note for Ginanjar & Puteri",
 
     FINAL_WIDTH / 2,
 
@@ -1297,7 +1792,7 @@ function() {
 
 
   /*
-    CAPTION
+     MESSAGE
   */
 
   ctx.fillStyle =
@@ -1316,12 +1811,9 @@ function() {
     caption.split(" ");
 
 
-  let line =
-    "";
+  let line = "";
 
-
-  const lines =
-    [];
+  const lines = [];
 
 
   for (
@@ -1329,6 +1821,7 @@ function() {
     i < words.length;
     i++
   ) {
+
 
     const testLine =
       line +
@@ -1346,6 +1839,7 @@ function() {
       width > maxWidth &&
       line !== ""
     ) {
+
 
       lines.push(
         line.trim()
@@ -1377,12 +1871,8 @@ function() {
   }
 
 
-  /*
-    Maksimal 4 baris
-  */
-
   const finalLines =
-    lines.slice(0, 4);
+    lines.slice(0,4);
 
 
   const lineHeight =
@@ -1394,7 +1884,11 @@ function() {
 
 
   finalLines.forEach(
-    function(text, index) {
+    function(
+      text,
+      index
+    ) {
+
 
       ctx.fillText(
 
@@ -1415,7 +1909,7 @@ function() {
 
 
   /*
-    UPDATE PREVIEW
+     UPDATE PREVIEW
   */
 
   photoResult.src =
@@ -1426,14 +1920,14 @@ function() {
 
 
   applyCaption.innerText =
-    "✅ PESAN SUDAH DITAMBAHKAN";
+    "✓ PESAN DITAMBAHKAN";
 
 
   setTimeout(
     function() {
 
       applyCaption.innerText =
-        "💌 TAMBAHKAN PESAN KE FOTO";
+        "💌  TAMBAHKAN PESAN";
 
     },
     2000
@@ -1442,19 +1936,20 @@ function() {
 };
 
 
-/* =========================
+/* =====================================================
    DOWNLOAD
-========================= */
+===================================================== */
 
 download.onclick =
 function() {
+
 
   const link =
     document.createElement("a");
 
 
   link.download =
-    "Ganjar-Puteri-31082026-Story.jpg";
+    "Ginanjar-Puteri-31082026-Story.jpg";
 
 
   link.href =
@@ -1469,14 +1964,16 @@ function() {
 };
 
 
-/* =========================
-   INSTAGRAM STORY
-========================= */
+/* =====================================================
+   SHARE / INSTAGRAM STORY
+===================================================== */
 
 share.onclick =
 async function() {
 
+
   try {
+
 
     const blob =
       await new Promise(
@@ -1501,7 +1998,7 @@ async function() {
 
         [blob],
 
-        "Ganjar-Puteri-31082026-Story.jpg",
+        "Ginanjar-Puteri-31082026-Story.jpg",
 
         {
 
@@ -1525,27 +2022,31 @@ async function() {
 
     ) {
 
+
       await navigator.share({
 
         files: [file],
 
         title:
-          "Ganjar & Puteri",
+          "Ginanjar & Puteri",
 
         text:
           "Wedding Photo • 31.08.2026"
 
       });
 
+
     }
 
     else {
 
+
       alert(
-        "Perangkat ini belum mendukung berbagi foto langsung. Silakan download foto terlebih dahulu."
+        "Perangkat ini belum mendukung berbagi foto. Silakan download foto terlebih dahulu."
       );
 
     }
+
 
   }
 
@@ -1558,12 +2059,13 @@ async function() {
 };
 
 
-/* =========================
-   FOTO ULANG
-========================= */
+/* =====================================================
+   RETAKE
+===================================================== */
 
 retake.onclick =
 async function() {
+
 
   result.style.display =
     "none";
@@ -1586,6 +2088,7 @@ async function() {
 };
 
 </script>
+
 
 </body>
 </html>
