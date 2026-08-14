@@ -35,13 +35,13 @@ body {
 
   min-height: 100vh;
 
-  padding: 24px 16px 45px;
+  padding: 20px 14px 45px;
 
   background:
     radial-gradient(
       circle at 50% 0%,
-      #fffefe 0%,
-      #faf5fa 38%,
+      #ffffff 0%,
+      #faf5fa 42%,
       #eee4f0 100%
     );
 
@@ -67,21 +67,21 @@ body {
 
   max-width: 500px;
 
-  margin: 0 auto 24px;
+  margin: 0 auto 19px;
 
 }
 
 .eyebrow {
 
-  margin-bottom: 9px;
+  margin-bottom: 7px;
 
   font-family:
     Arial,
     sans-serif;
 
-  font-size: 9px;
+  font-size: 8px;
 
-  letter-spacing: 4px;
+  letter-spacing: 3.5px;
 
   color: #8c778f;
 
@@ -93,13 +93,13 @@ body {
 
   margin: 0;
 
-  font-size: 30px;
+  font-size: 29px;
 
   line-height: 1.2;
 
   font-weight: normal;
 
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
 
   color: #4c3652;
 
@@ -107,15 +107,15 @@ body {
 
 .subtitle {
 
-  margin-top: 8px;
+  margin-top: 7px;
 
   font-family:
     Arial,
     sans-serif;
 
-  font-size: 10px;
+  font-size: 9px;
 
-  letter-spacing: 2.5px;
+  letter-spacing: 2.2px;
 
   color: #806d86;
 
@@ -125,15 +125,15 @@ body {
 
 .date {
 
-  margin-top: 7px;
+  margin-top: 6px;
 
   font-family:
     Arial,
     sans-serif;
 
-  font-size: 11px;
+  font-size: 10px;
 
-  letter-spacing: 4px;
+  letter-spacing: 3.5px;
 
   color: #806d86;
 
@@ -141,13 +141,249 @@ body {
 
 .love-divider {
 
-  margin-top: 14px;
+  margin-top: 10px;
 
-  font-size: 18px;
+  font-size: 17px;
 
   color: #a88eac;
 
   letter-spacing: 4px;
+
+}
+
+
+/* =====================================================
+   FRAME SECTION
+===================================================== */
+
+.frame-panel {
+
+  width: 100%;
+
+  max-width: 430px;
+
+  margin: 0 auto 17px;
+
+  padding:
+    15px 13px 13px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #684575 0%,
+      #765181 48%,
+      #83618d 100%
+    );
+
+  box-shadow:
+    0 9px 24px
+    rgba(75,40,85,0.18);
+
+}
+
+.frame-panel-title {
+
+  margin-bottom: 3px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: bold;
+
+  letter-spacing: 2.8px;
+
+  color: white;
+
+  text-transform: uppercase;
+
+}
+
+.frame-panel-subtitle {
+
+  margin-bottom: 11px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 8px;
+
+  color:
+    rgba(255,255,255,0.70);
+
+}
+
+
+/* =====================================================
+   FRAME SELECTOR
+===================================================== */
+
+.frame-selector {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 8px;
+
+}
+
+.frame-choice {
+
+  position: relative;
+
+  padding: 3px;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.35);
+
+  border-radius: 9px;
+
+  background:
+    rgba(255,255,255,0.12);
+
+  cursor: pointer;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+
+}
+
+.frame-choice:hover {
+
+  transform:
+    translateY(-2px);
+
+  background:
+    rgba(255,255,255,0.20);
+
+}
+
+.frame-choice.active {
+
+  border:
+    2px solid white;
+
+  background:
+    rgba(255,255,255,0.26);
+
+  box-shadow:
+    0 5px 15px
+    rgba(30,15,40,0.25);
+
+  transform:
+    translateY(-2px);
+
+}
+
+.frame-choice img {
+
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 9 / 16;
+
+  object-fit: cover;
+
+  border-radius: 6px;
+
+}
+
+.frame-number {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 6px;
+
+  transform:
+    translateX(-50%);
+
+  padding:
+    2px 6px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(48,32,53,0.72);
+
+  color: white;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 7px;
+
+  letter-spacing: 1px;
+
+}
+
+.selected-mark {
+
+  position: absolute;
+
+  top: 6px;
+
+  right: 6px;
+
+  display: none;
+
+  width: 18px;
+
+  height: 18px;
+
+  line-height: 18px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  color: #684575;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: bold;
+
+}
+
+.frame-choice.active
+.selected-mark {
+
+  display: block;
+
+}
+
+
+/* =====================================================
+   READY TEXT
+===================================================== */
+
+.ready-text {
+
+  margin:
+    0 auto 9px;
+
+  font-size: 11px;
+
+  font-style: italic;
+
+  color: #8d798f;
 
 }
 
@@ -160,7 +396,7 @@ body {
 
   width: 100%;
 
-  max-width: 430px;
+  max-width: 400px;
 
   margin: 0 auto;
 
@@ -172,17 +408,17 @@ body {
 
   width: 100%;
 
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 9 / 14;
 
   overflow: hidden;
 
   background: #111;
 
-  border-radius: 21px;
+  border-radius: 20px;
 
   box-shadow:
-    0 16px 42px
-    rgba(62, 38, 68, 0.22);
+    0 15px 36px
+    rgba(62,38,68,0.22);
 
 }
 
@@ -229,17 +465,15 @@ body {
 
   position: absolute;
 
-  top: 17px;
+  top: 13px;
 
-  right: 17px;
+  right: 13px;
 
   z-index: 30;
 
-  width: 43px;
+  width: 39px;
 
-  height: 43px;
-
-  margin: 0;
+  height: 39px;
 
   padding: 0;
 
@@ -254,7 +488,7 @@ body {
 
   color: white;
 
-  font-size: 19px;
+  font-size: 18px;
 
   backdrop-filter:
     blur(7px);
@@ -284,11 +518,7 @@ body {
 
   display: none;
 
-  font-family:
-    Georgia,
-    serif;
-
-  font-size: 100px;
+  font-size: 92px;
 
   font-weight: bold;
 
@@ -337,256 +567,24 @@ body {
 
 
 /* =====================================================
-   CAMERA INFO
-===================================================== */
-
-#resolutionInfo {
-
-  margin-top: 9px;
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  font-size: 9px;
-
-  letter-spacing: 1.5px;
-
-  color: #9a899d;
-
-}
-
-
-/* =====================================================
-   FRAME PANEL
-===================================================== */
-
-.frame-panel {
-
-  width: 100%;
-
-  max-width: 430px;
-
-  margin: 24px auto 0;
-
-  padding:
-    18px 14px 14px;
-
-  border-radius: 19px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #684575 0%,
-      #765181 48%,
-      #83618d 100%
-    );
-
-  box-shadow:
-    0 10px 26px
-    rgba(75,40,85,0.20);
-
-}
-
-.frame-panel-title {
-
-  margin-bottom: 4px;
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  font-size: 10px;
-
-  font-weight: bold;
-
-  letter-spacing: 3px;
-
-  color: white;
-
-  text-transform: uppercase;
-
-}
-
-.frame-panel-subtitle {
-
-  margin-bottom: 14px;
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  font-size: 9px;
-
-  color:
-    rgba(255,255,255,0.72);
-
-}
-
-
-/* =====================================================
-   FRAME SELECTOR
-===================================================== */
-
-.frame-selector {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  gap: 9px;
-
-}
-
-.frame-choice {
-
-  position: relative;
-
-  padding: 4px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.40);
-
-  border-radius: 10px;
-
-  background:
-    rgba(255,255,255,0.13);
-
-  cursor: pointer;
-
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease,
-    background .2s ease;
-
-}
-
-.frame-choice:hover {
-
-  transform:
-    translateY(-3px);
-
-  background:
-    rgba(255,255,255,0.22);
-
-}
-
-.frame-choice.active {
-
-  border:
-    2px solid white;
-
-  background:
-    rgba(255,255,255,0.28);
-
-  box-shadow:
-    0 6px 18px
-    rgba(30,15,40,0.28);
-
-  transform:
-    translateY(-3px);
-
-}
-
-.frame-choice img {
-
-  display: block;
-
-  width: 100%;
-
-  aspect-ratio: 9 / 16;
-
-  object-fit: cover;
-
-  border-radius: 7px;
-
-}
-
-.frame-number {
-
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 7px;
-
-  transform:
-    translateX(-50%);
-
-  padding:
-    3px 7px;
-
-  border-radius: 20px;
-
-  background:
-    rgba(48,32,53,0.75);
-
-  color: white;
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  font-size: 8px;
-
-  letter-spacing: 1px;
-
-}
-
-.selected-mark {
-
-  position: absolute;
-
-  top: 7px;
-
-  right: 7px;
-
-  display: none;
-
-  padding:
-    4px 6px;
-
-  border-radius: 20px;
-
-  background: white;
-
-  color: #684575;
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  font-size: 8px;
-
-  font-weight: bold;
-
-}
-
-.frame-choice.active
-.selected-mark {
-
-  display: block;
-
-}
-
-
-/* =====================================================
    CAPTURE BUTTON
 ===================================================== */
 
 .main-button {
 
+  position: relative;
+
+  z-index: 20;
+
   display: block;
 
   width: 100%;
 
-  max-width: 430px;
+  max-width: 400px;
 
-  margin: 18px auto 0;
+  margin: 12px auto 0;
 
-  padding: 17px 20px;
+  padding: 16px 20px;
 
   border: none;
 
@@ -605,12 +603,12 @@ body {
     Georgia,
     serif;
 
-  font-size: 15px;
+  font-size: 14px;
 
-  letter-spacing: 1.3px;
+  letter-spacing: 1.2px;
 
   box-shadow:
-    0 8px 23px
+    0 8px 22px
     rgba(96,55,105,0.25);
 
   cursor: pointer;
@@ -644,11 +642,11 @@ body {
 
   width: 100%;
 
-  max-width: 430px;
+  max-width: 400px;
 
   margin: 22px auto 0;
 
-  padding: 20px 18px;
+  padding: 18px;
 
   border:
     1px solid
@@ -657,7 +655,7 @@ body {
   border-radius: 17px;
 
   background:
-    rgba(255,255,255,0.78);
+    rgba(255,255,255,0.82);
 
   box-shadow:
     0 8px 25px
@@ -677,13 +675,13 @@ body {
 
 .caption-subtitle {
 
-  margin-bottom: 14px;
+  margin-bottom: 13px;
 
   font-family:
     Arial,
     sans-serif;
 
-  font-size: 10px;
+  font-size: 9px;
 
   color: #9a899c;
 
@@ -693,10 +691,10 @@ body {
 
   width: 100%;
 
-  min-height: 92px;
+  min-height: 88px;
 
   padding:
-    13px 14px;
+    12px 13px;
 
   resize: vertical;
 
@@ -737,7 +735,7 @@ body {
     Arial,
     sans-serif;
 
-  font-size: 9px;
+  font-size: 8px;
 
   color: #9a899c;
 
@@ -745,18 +743,18 @@ body {
 
 
 /* =====================================================
-   ACTION BUTTON
+   ACTION BUTTONS
 ===================================================== */
 
 .action-button {
 
   width: 100%;
 
-  max-width: 430px;
+  max-width: 400px;
 
-  margin: 10px auto 0;
+  margin: 9px auto 0;
 
-  padding: 14px;
+  padding: 13px;
 
   border:
     1px solid
@@ -772,7 +770,7 @@ body {
     Arial,
     sans-serif;
 
-  font-size: 11px;
+  font-size: 10px;
 
   font-weight: 600;
 
@@ -813,21 +811,21 @@ body {
 
   width: 100%;
 
-  max-width: 430px;
+  max-width: 400px;
 
-  margin: 25px auto 0;
+  margin: 27px auto 0;
 
 }
 
 .result-title {
 
-  margin-bottom: 7px;
+  margin-bottom: 6px;
 
   font-family:
     Arial,
     sans-serif;
 
-  font-size: 10px;
+  font-size: 9px;
 
   letter-spacing: 3px;
 
@@ -837,7 +835,7 @@ body {
 
 .result-subtitle {
 
-  margin-bottom: 13px;
+  margin-bottom: 12px;
 
   font-size: 13px;
 
@@ -851,7 +849,7 @@ body {
 
   width: 100%;
 
-  border-radius: 18px;
+  border-radius: 17px;
 
   box-shadow:
     0 13px 38px
@@ -866,7 +864,7 @@ body {
 
 .footer {
 
-  margin-top: 34px;
+  margin-top: 32px;
 
   color: #99899c;
 
@@ -874,7 +872,7 @@ body {
 
 .footer-message {
 
-  font-size: 12px;
+  font-size: 11px;
 
   font-style: italic;
 
@@ -888,7 +886,7 @@ body {
     Arial,
     sans-serif;
 
-  font-size: 9px;
+  font-size: 8px;
 
   letter-spacing: 2px;
 
@@ -921,7 +919,7 @@ body {
 
 
 /* =====================================================
-   MOBILE
+   SMALL PHONE
 ===================================================== */
 
 @media (
@@ -930,9 +928,9 @@ body {
 
   body {
 
-    padding-left: 11px;
+    padding-left: 10px;
 
-    padding-right: 11px;
+    padding-right: 10px;
 
   }
 
@@ -942,17 +940,78 @@ body {
 
   }
 
-  .frame-panel {
+  .frame-selector {
 
-    padding-left: 10px;
-
-    padding-right: 10px;
+    gap: 5px;
 
   }
 
-  .frame-selector {
+  .camera-box {
 
-    gap: 6px;
+    aspect-ratio: 9 / 13.5;
+
+  }
+
+}
+
+
+/* =====================================================
+   SHORT SCREEN
+===================================================== */
+
+@media (
+  max-height: 700px
+) {
+
+  body {
+
+    padding-top: 12px;
+
+  }
+
+  .header {
+
+    margin-bottom: 12px;
+
+  }
+
+  .love-divider {
+
+    margin-top: 6px;
+
+  }
+
+  .frame-panel {
+
+    padding-top: 11px;
+
+    padding-bottom: 10px;
+
+  }
+
+  .frame-panel-subtitle {
+
+    margin-bottom: 7px;
+
+  }
+
+  .ready-text {
+
+    margin-bottom: 6px;
+
+  }
+
+  .camera-box {
+
+    aspect-ratio: 9 / 12;
+
+  }
+
+  .main-button {
+
+    margin-top: 9px;
+
+    padding: 13px;
 
   }
 
@@ -972,33 +1031,140 @@ body {
 
 <header class="header">
 
-
 <div class="eyebrow">
 Wedding Photo Experience
 </div>
-
 
 <h1 class="names">
 Ginanjar & Puteri
 </h1>
 
-
 <div class="subtitle">
 Our Wedding Celebration
 </div>
-
 
 <div class="date">
 31 • 08 • 2026
 </div>
 
-
 <div class="love-divider">
 — ♡ —
 </div>
 
-
 </header>
+
+
+
+<!-- =====================================================
+     FRAME SELECTOR
+===================================================== -->
+
+<section class="frame-panel">
+
+<div class="frame-panel-title">
+Choose Your Frame
+</div>
+
+<div class="frame-panel-subtitle">
+Pilih bingkai favoritmu
+</div>
+
+
+<div class="frame-selector">
+
+
+<div
+  class="frame-choice active"
+  id="frame1Button">
+
+<img
+  src="frame01.png"
+  alt="Frame 1">
+
+<div class="frame-number">
+01
+</div>
+
+<div class="selected-mark">
+✓
+</div>
+
+</div>
+
+
+
+<div
+  class="frame-choice"
+  id="frame2Button">
+
+<img
+  src="frame02.png"
+  alt="Frame 2">
+
+<div class="frame-number">
+02
+</div>
+
+<div class="selected-mark">
+✓
+</div>
+
+</div>
+
+
+
+<div
+  class="frame-choice"
+  id="frame3Button">
+
+<img
+  src="frame03.png"
+  alt="Frame 3">
+
+<div class="frame-number">
+03
+</div>
+
+<div class="selected-mark">
+✓
+</div>
+
+</div>
+
+
+
+<div
+  class="frame-choice"
+  id="frame4Button">
+
+<img
+  src="frame04.png"
+  alt="Frame 4">
+
+<div class="frame-number">
+04
+</div>
+
+<div class="selected-mark">
+✓
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     READY
+===================================================== -->
+
+<div class="ready-text">
+Ready when you are ♡
+</div>
 
 
 
@@ -1022,11 +1188,12 @@ Our Wedding Celebration
 <img
   id="frameOverlay"
   src="frame01.png"
-  alt="Wedding Frame">
+  alt="Selected Wedding Frame">
 
 
 <button
-  id="switchCamera">
+  id="switchCamera"
+  aria-label="Ganti kamera">
 
 ↻
 
@@ -1038,132 +1205,6 @@ Our Wedding Celebration
 
 </div>
 
-
-<div id="resolutionInfo">
-Memuat kamera...
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-     FRAME PANEL
-===================================================== -->
-
-<div class="frame-panel">
-
-
-<div class="frame-panel-title">
-Choose Your Frame
-</div>
-
-
-<div class="frame-panel-subtitle">
-Pilih bingkai favoritmu
-</div>
-
-
-<div class="frame-selector">
-
-
-<div
-  class="frame-choice active"
-  id="frame1Button">
-
-
-<img
-  src="frame01.png"
-  alt="Frame 1">
-
-
-<div class="frame-number">
-01
-</div>
-
-
-<div class="selected-mark">
-✓
-</div>
-
-
-</div>
-
-
-
-<div
-  class="frame-choice"
-  id="frame2Button">
-
-
-<img
-  src="frame02.png"
-  alt="Frame 2">
-
-
-<div class="frame-number">
-02
-</div>
-
-
-<div class="selected-mark">
-✓
-</div>
-
-
-</div>
-
-
-
-<div
-  class="frame-choice"
-  id="frame3Button">
-
-
-<img
-  src="frame03.png"
-  alt="Frame 3">
-
-
-<div class="frame-number">
-03
-</div>
-
-
-<div class="selected-mark">
-✓
-</div>
-
-
-</div>
-
-
-
-<div
-  class="frame-choice"
-  id="frame4Button">
-
-
-<img
-  src="frame04.png"
-  alt="Frame 4">
-
-
-<div class="frame-number">
-04
-</div>
-
-
-<div class="selected-mark">
-✓
-</div>
-
-
-</div>
-
-
-</div>
 
 </div>
 
@@ -1184,7 +1225,30 @@ Pilih bingkai favoritmu
 
 
 <!-- =====================================================
-     CAPTION
+     RESULT
+===================================================== -->
+
+<div id="result">
+
+
+<div class="result-title">
+YOUR MOMENT
+</div>
+
+
+<div class="result-subtitle">
+A memory to keep from our special day 🤍
+</div>
+
+
+<img
+  id="photoResult"
+  alt="Hasil foto">
+
+
+
+<!-- =====================================================
+     OPTIONAL CAPTION
 ===================================================== -->
 
 <div
@@ -1193,12 +1257,12 @@ Pilih bingkai favoritmu
 
 
 <div class="caption-title">
-Leave a Little Note
+Leave a Little Note 🤍
 </div>
 
 
 <div class="caption-subtitle">
-Tulis pesan untuk Ginanjar & Puteri
+Optional — tulis pesan untuk Ginanjar & Puteri
 </div>
 
 
@@ -1234,26 +1298,8 @@ Tulis pesan untuk Ginanjar & Puteri
 
 
 <!-- =====================================================
-     RESULT
+     ACTIONS
 ===================================================== -->
-
-<div id="result">
-
-
-<div class="result-title">
-YOUR MOMENT
-</div>
-
-
-<div class="result-subtitle">
-A memory to keep from our special day 🤍
-</div>
-
-
-<img
-  id="photoResult"
-  alt="Hasil foto">
-
 
 <button
   id="share"
@@ -1355,9 +1401,6 @@ const retake =
 const frameOverlay =
   document.getElementById("frameOverlay");
 
-const resolutionInfo =
-  document.getElementById("resolutionInfo");
-
 const captionBox =
   document.getElementById("captionBox");
 
@@ -1415,6 +1458,7 @@ function selectFrame(
 
   selectedFrame =
     frame;
+
 
   frameOverlay.src =
     frame;
@@ -1494,6 +1538,7 @@ async function startCamera() {
 
   try {
 
+
     if (stream) {
 
       stream
@@ -1546,13 +1591,6 @@ async function startCamera() {
 
 
     await video.play();
-
-
-    resolutionInfo.innerText =
-
-      video.videoWidth +
-      " × " +
-      video.videoHeight;
 
 
   }
@@ -1630,6 +1668,7 @@ function showCountdownNumber(
 takePhoto.onclick =
 function() {
 
+
   let number = 3;
 
 
@@ -1646,6 +1685,7 @@ function() {
     setInterval(
       function() {
 
+
         number--;
 
 
@@ -1660,6 +1700,7 @@ function() {
         }
 
         else {
+
 
           clearInterval(timer);
 
@@ -1676,6 +1717,7 @@ function() {
 
         }
 
+
       },
       1000
     );
@@ -1688,6 +1730,7 @@ function() {
 ===================================================== */
 
 function capturePhoto() {
+
 
   countdown.style.display =
     "none";
@@ -1806,6 +1849,7 @@ function capturePhoto() {
   frame.onload =
   function() {
 
+
     ctx.drawImage(
 
       frame,
@@ -1826,6 +1870,7 @@ function capturePhoto() {
 
   frame.onerror =
   function() {
+
 
     alert(
       "Frame tidak ditemukan. Pastikan nama file sama persis."
@@ -1849,6 +1894,7 @@ function capturePhoto() {
 ===================================================== */
 
 function finishPhoto() {
+
 
   photoResult.src =
     canvas.toDataURL(
@@ -1877,15 +1923,22 @@ function finishPhoto() {
     "0";
 
 
-  window.scrollTo({
+  setTimeout(
+    function() {
 
-    top:
-      document.body.scrollHeight,
+      result.scrollIntoView({
 
-    behavior:
-      "smooth"
+        behavior:
+          "smooth",
 
-  });
+        block:
+          "start"
+
+      });
+
+    },
+    250
+  );
 
 
   if (stream) {
@@ -1924,6 +1977,7 @@ captionInput.addEventListener(
 applyCaption.onclick =
 function() {
 
+
   const caption =
     captionInput.value.trim();
 
@@ -1931,7 +1985,7 @@ function() {
   if (!caption) {
 
     alert(
-      "Silakan tulis pesan terlebih dahulu."
+      "Tulis pesan terlebih dahulu."
     );
 
     return;
@@ -2045,6 +2099,7 @@ function() {
     i++
   ) {
 
+
     const testLine =
       line +
       words[i] +
@@ -2061,6 +2116,7 @@ function() {
       width > maxWidth &&
       line !== ""
     ) {
+
 
       lines.push(
         line.trim()
@@ -2109,6 +2165,7 @@ function() {
       text,
       index
     ) {
+
 
       ctx.fillText(
 
@@ -2159,6 +2216,7 @@ function() {
 download.onclick =
 function() {
 
+
   const link =
     document.createElement("a");
 
@@ -2186,7 +2244,9 @@ function() {
 share.onclick =
 async function() {
 
+
   try {
+
 
     const blob =
       await new Promise(
@@ -2235,6 +2295,7 @@ async function() {
 
     ) {
 
+
       await navigator.share({
 
         files: [file],
@@ -2243,19 +2304,22 @@ async function() {
           "Ginanjar & Puteri",
 
         text:
-          "Wedding Photo Experience • 31.08.2026"
+          "Ginanjar & Puteri • 31.08.2026"
 
       });
+
 
     }
 
     else {
+
 
       alert(
         "Perangkat ini belum mendukung berbagi foto langsung. Silakan download foto terlebih dahulu."
       );
 
     }
+
 
   }
 
@@ -2274,6 +2338,7 @@ async function() {
 
 retake.onclick =
 async function() {
+
 
   result.style.display =
     "none";
