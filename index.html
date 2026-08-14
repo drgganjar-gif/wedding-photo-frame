@@ -11,73 +11,124 @@
 
 <title>Ganjar & Puteri | 31.08.2026</title>
 
+
 <style>
 
 * {
   box-sizing: border-box;
 }
 
+
 body {
+
   margin: 0;
+
   padding: 18px;
+
   min-height: 100vh;
+
   background: #f3edf5;
+
   font-family: Georgia, serif;
+
   text-align: center;
+
   color: #382d3d;
+
 }
+
 
 h1 {
+
   margin: 5px 0;
+
   font-size: 25px;
+
   letter-spacing: 2px;
+
 }
 
+
 .subtitle {
+
   margin-bottom: 16px;
+
   font-size: 14px;
+
   letter-spacing: 1px;
+
 }
 
 
 /* =========================
-   PILIH FRAME
+   FRAME SELECTOR
 ========================= */
 
 .frame-title {
+
   margin-top: 10px;
+
   margin-bottom: 10px;
+
   font-size: 14px;
+
   letter-spacing: 1px;
+
 }
+
 
 .frame-buttons {
+
   display: flex;
+
   justify-content: center;
+
   gap: 7px;
+
   width: 100%;
+
   max-width: 420px;
+
   margin: 0 auto 15px;
+
 }
+
 
 .frame-button {
+
   flex: 1;
+
   width: auto;
+
   margin: 0;
+
   padding: 11px 4px;
+
   border-radius: 10px;
+
   background: white;
+
   color: #684575;
+
   border: 2px solid #d9c8df;
+
   box-shadow: none;
+
   font-size: 12px;
+
   cursor: pointer;
+
 }
 
+
 .frame-button.active {
+
   background: #684575;
+
   color: white;
+
   border-color: #684575;
+
 }
 
 
@@ -86,35 +137,62 @@ h1 {
 ========================= */
 
 .camera-box {
+
   position: relative;
+
   width: 100%;
+
   max-width: 420px;
+
   aspect-ratio: 9 / 16;
+
   margin: auto;
+
   background: #111;
+
   overflow: hidden;
+
   border-radius: 18px;
+
   box-shadow:
     0 8px 28px rgba(60,30,70,0.25);
+
 }
+
 
 #camera {
+
   position: absolute;
+
   inset: 0;
+
   width: 100%;
+
   height: 100%;
+
   object-fit: cover;
+
   z-index: 1;
+
 }
 
+
 #frameOverlay {
+
   position: absolute;
+
   inset: 0;
+
   width: 100%;
+
   height: 100%;
+
   object-fit: fill;
+
   z-index: 10;
+
   pointer-events: none;
+
 }
 
 
@@ -123,27 +201,36 @@ h1 {
 ========================= */
 
 #switchCamera {
+
   position: absolute;
+
   top: 24px;
+
   right: 24px;
+
   z-index: 20;
 
   width: 46px;
+
   height: 46px;
 
   margin: 0;
+
   padding: 0;
 
   border: none;
+
   border-radius: 50%;
 
-  background: rgba(65,35,75,0.65);
+  background:
+    rgba(65,35,75,0.65);
 
   color: white;
 
   font-size: 20px;
 
   cursor: pointer;
+
 }
 
 
@@ -152,9 +239,11 @@ h1 {
 ========================= */
 
 #countdown {
+
   position: absolute;
 
   top: 50%;
+
   left: 50%;
 
   transform:
@@ -163,6 +252,7 @@ h1 {
   z-index: 30;
 
   font-size: 90px;
+
   font-weight: bold;
 
   color: white;
@@ -171,6 +261,7 @@ h1 {
     0 3px 15px #3b1748;
 
   display: none;
+
 }
 
 
@@ -179,7 +270,9 @@ h1 {
 ========================= */
 
 button {
+
   width: 100%;
+
   max-width: 420px;
 
   margin: 12px auto 0;
@@ -187,6 +280,7 @@ button {
   padding: 14px;
 
   border: none;
+
   border-radius: 11px;
 
   background: #684575;
@@ -199,10 +293,14 @@ button {
 
   box-shadow:
     0 4px 12px rgba(80,40,90,0.2);
+
 }
 
+
 button:active {
+
   transform: scale(0.98);
+
 }
 
 
@@ -211,21 +309,109 @@ button:active {
 ========================= */
 
 #result {
+
   display: none;
 
   width: 100%;
+
   max-width: 420px;
 
   margin: 20px auto;
+
 }
 
+
 #photoResult {
+
   width: 100%;
 
   border-radius: 16px;
 
   box-shadow:
     0 6px 22px rgba(60,30,70,0.22);
+
+}
+
+
+/* =========================
+   CAPTION
+========================= */
+
+.caption-box {
+
+  display: none;
+
+  width: 100%;
+
+  max-width: 420px;
+
+  margin: 18px auto 0;
+
+}
+
+
+.caption-title {
+
+  margin-bottom: 8px;
+
+  font-size: 14px;
+
+  letter-spacing: 1px;
+
+}
+
+
+#captionInput {
+
+  width: 100%;
+
+  min-height: 90px;
+
+  padding: 13px;
+
+  resize: vertical;
+
+  border: 1px solid #d6c5dc;
+
+  border-radius: 11px;
+
+  background: white;
+
+  color: #382d3d;
+
+  font-family: Georgia, serif;
+
+  font-size: 14px;
+
+  outline: none;
+
+}
+
+
+#captionInput:focus {
+
+  border-color: #684575;
+
+}
+
+
+.caption-counter {
+
+  text-align: right;
+
+  margin-top: 5px;
+
+  font-size: 11px;
+
+  color: #806d86;
+
+}
+
+
+#applyCaption {
+
+  margin-top: 10px;
+
 }
 
 
@@ -234,11 +420,13 @@ button:active {
 ========================= */
 
 #resolutionInfo {
+
   margin-top: 8px;
 
   font-size: 11px;
 
   color: #806d86;
+
 }
 
 
@@ -247,7 +435,9 @@ button:active {
 ========================= */
 
 #canvas {
+
   display: none;
+
 }
 
 </style>
@@ -357,6 +547,52 @@ Memuat kamera...
 </button>
 
 
+<!-- =========================
+     CAPTION
+========================= -->
+
+<div
+  class="caption-box"
+  id="captionBox">
+
+
+<div class="caption-title">
+
+💌 Tulis pesan untuk Ganjar & Puteri
+
+</div>
+
+
+<textarea
+  id="captionInput"
+  maxlength="120"
+  placeholder="Contoh: Semoga bahagia selalu dan menjadi keluarga yang sakinah 🤍">
+</textarea>
+
+
+<div class="caption-counter">
+
+<span id="captionCounter">0</span>
+/
+120
+
+</div>
+
+
+<button id="applyCaption">
+
+💌 TAMBAHKAN PESAN KE FOTO
+
+</button>
+
+
+</div>
+
+
+<!-- =========================
+     RESULT
+========================= -->
+
 <div id="result">
 
 
@@ -402,48 +638,78 @@ Memuat kamera...
 const video =
   document.getElementById("camera");
 
+
 const takePhoto =
   document.getElementById("takePhoto");
+
 
 const switchCamera =
   document.getElementById("switchCamera");
 
+
 const countdown =
   document.getElementById("countdown");
+
 
 const canvas =
   document.getElementById("canvas");
 
+
 const result =
   document.getElementById("result");
+
 
 const photoResult =
   document.getElementById("photoResult");
 
+
 const download =
   document.getElementById("download");
+
 
 const share =
   document.getElementById("share");
 
+
 const retake =
   document.getElementById("retake");
 
+
 const frameOverlay =
   document.getElementById("frameOverlay");
+
 
 const resolutionInfo =
   document.getElementById("resolutionInfo");
 
 
+const captionBox =
+  document.getElementById("captionBox");
+
+
+const captionInput =
+  document.getElementById("captionInput");
+
+
+const captionCounter =
+  document.getElementById("captionCounter");
+
+
+const applyCaption =
+  document.getElementById("applyCaption");
+
+
 const frame1Button =
   document.getElementById("frame1Button");
+
 
 const frame2Button =
   document.getElementById("frame2Button");
 
+
 const frame3Button =
   document.getElementById("frame3Button");
+
 
 const frame4Button =
   document.getElementById("frame4Button");
@@ -467,7 +733,7 @@ let selectedFrame =
 
 
 /* =========================
-   FRAME 1
+   FRAME SELECTOR
 ========================= */
 
 frame1Button.onclick =
@@ -498,10 +764,6 @@ function() {
 };
 
 
-/* =========================
-   FRAME 2
-========================= */
-
 frame2Button.onclick =
 function() {
 
@@ -530,10 +792,6 @@ function() {
 };
 
 
-/* =========================
-   FRAME 3
-========================= */
-
 frame3Button.onclick =
 function() {
 
@@ -561,10 +819,6 @@ function() {
 
 };
 
-
-/* =========================
-   FRAME 4
-========================= */
 
 frame4Button.onclick =
 function() {
@@ -705,8 +959,10 @@ function() {
 
   let number = 3;
 
+
   countdown.style.display =
     "block";
+
 
   countdown.innerText =
     number;
@@ -746,10 +1002,11 @@ function() {
 
 
 /* =========================
-   CAPTURE HD
+   CAPTURE FOTO
 ========================= */
 
 function capturePhoto() {
+
 
   countdown.style.display =
     "none";
@@ -758,11 +1015,10 @@ function capturePhoto() {
   const sourceWidth =
     video.videoWidth;
 
+
   const sourceHeight =
     video.videoHeight;
 
-
-  /* 9 : 16 */
 
   const targetRatio =
     9 / 16;
@@ -770,6 +1026,7 @@ function capturePhoto() {
 
   let cropWidth =
     sourceWidth;
+
 
   let cropHeight =
     sourceWidth /
@@ -783,6 +1040,7 @@ function capturePhoto() {
 
     cropHeight =
       sourceHeight;
+
 
     cropWidth =
       sourceHeight *
@@ -816,17 +1074,13 @@ function capturePhoto() {
   canvas.width =
     outputWidth;
 
+
   canvas.height =
     outputHeight;
 
 
   const ctx =
-    canvas.getContext(
-      "2d",
-      {
-        alpha: false
-      }
-    );
+    canvas.getContext("2d");
 
 
   /* CAMERA */
@@ -859,6 +1113,7 @@ function capturePhoto() {
   frame.onload =
   function() {
 
+
     ctx.drawImage(
 
       frame,
@@ -881,7 +1136,7 @@ function capturePhoto() {
   function() {
 
     alert(
-      "Frame tidak ditemukan. Pastikan semua frame berada satu folder dengan index.html."
+      "Frame tidak ditemukan. Pastikan file frame berada satu folder dengan index.html."
     );
 
   };
@@ -899,6 +1154,7 @@ function capturePhoto() {
 
 function finishPhoto() {
 
+
   const image =
     canvas.toDataURL(
       "image/jpeg",
@@ -914,8 +1170,20 @@ function finishPhoto() {
     "block";
 
 
+  captionBox.style.display =
+    "block";
+
+
   takePhoto.style.display =
     "none";
+
+
+  captionInput.value =
+    "";
+
+
+  captionCounter.innerText =
+    "0";
 
 
   if (stream) {
@@ -932,11 +1200,361 @@ function finishPhoto() {
 
 
 /* =========================
+   COUNTER
+========================= */
+
+captionInput.addEventListener(
+  "input",
+  function() {
+
+    captionCounter.innerText =
+      captionInput.value.length;
+
+  }
+);
+
+
+/* =========================
+   TAMBAHKAN CAPTION
+========================= */
+
+applyCaption.onclick =
+function() {
+
+
+  const caption =
+    captionInput.value.trim();
+
+
+  if (!caption) {
+
+    alert(
+      "Silakan tulis pesan terlebih dahulu."
+    );
+
+    return;
+
+  }
+
+
+  const oldCanvas =
+    document.createElement("canvas");
+
+
+  oldCanvas.width =
+    canvas.width;
+
+
+  oldCanvas.height =
+    canvas.height;
+
+
+  const oldCtx =
+    oldCanvas.getContext("2d");
+
+
+  oldCtx.drawImage(
+    canvas,
+    0,
+    0
+  );
+
+
+  /* =========================
+     AREA CAPTION
+  ========================= */
+
+  const captionHeight =
+    Math.round(
+      canvas.width * 0.20
+    );
+
+
+  const finalCanvas =
+    document.createElement("canvas");
+
+
+  finalCanvas.width =
+    canvas.width;
+
+
+  finalCanvas.height =
+    canvas.height +
+    captionHeight;
+
+
+  const ctx =
+    finalCanvas.getContext("2d");
+
+
+  /* BACKGROUND */
+
+  ctx.fillStyle =
+    "#fffafc";
+
+
+  ctx.fillRect(
+
+    0,
+    0,
+
+    finalCanvas.width,
+    finalCanvas.height
+
+  );
+
+
+  /* FOTO */
+
+  ctx.drawImage(
+
+    oldCanvas,
+
+    0,
+    0
+
+  );
+
+
+  /* GARIS PEMBATAS */
+
+  ctx.strokeStyle =
+    "#d8c5dc";
+
+
+  ctx.lineWidth =
+    2;
+
+
+  ctx.beginPath();
+
+
+  ctx.moveTo(
+
+    40,
+    canvas.height +
+    10
+
+  );
+
+
+  ctx.lineTo(
+
+    canvas.width - 40,
+    canvas.height +
+    10
+
+  );
+
+
+  ctx.stroke();
+
+
+  /* JUDUL */
+
+  ctx.fillStyle =
+    "#684575";
+
+
+  ctx.textAlign =
+    "center";
+
+
+  ctx.font =
+    "bold " +
+    Math.round(
+      canvas.width * 0.030
+    ) +
+    "px Georgia";
+
+
+  ctx.fillText(
+
+    "A little note for Ganjar & Puteri",
+
+    canvas.width / 2,
+
+    canvas.height +
+    Math.round(
+      captionHeight * 0.36
+    )
+
+  );
+
+
+  /* CAPTION */
+
+  ctx.font =
+    Math.round(
+      canvas.width * 0.026
+    ) +
+    "px Georgia";
+
+
+  ctx.fillStyle =
+    "#382d3d";
+
+
+  const maxWidth =
+    canvas.width -
+    100;
+
+
+  const words =
+    caption.split(" ");
+
+
+  let line =
+    "";
+
+
+  let lines =
+    [];
+
+
+  for (
+    let i = 0;
+    i < words.length;
+    i++
+  ) {
+
+
+    const testLine =
+      line +
+      words[i] +
+      " ";
+
+
+    const metrics =
+      ctx.measureText(
+        testLine
+      );
+
+
+    if (
+      metrics.width >
+      maxWidth &&
+      line !== ""
+    ) {
+
+      lines.push(
+        line.trim()
+      );
+
+
+      line =
+        words[i] +
+        " ";
+
+    }
+
+    else {
+
+      line =
+        testLine;
+
+    }
+
+  }
+
+
+  lines.push(
+    line.trim()
+  );
+
+
+  const lineHeight =
+    Math.round(
+      canvas.width * 0.035
+    );
+
+
+  const startY =
+    canvas.height +
+    Math.round(
+      captionHeight * 0.58
+    );
+
+
+  lines
+    .slice(0,3)
+    .forEach(
+      (text,index) => {
+
+        ctx.fillText(
+
+          text,
+
+          canvas.width / 2,
+
+          startY +
+          (
+            index *
+            lineHeight
+          )
+
+        );
+
+      }
+    );
+
+
+  /* =========================
+     UPDATE CANVAS
+  ========================= */
+
+  canvas.width =
+    finalCanvas.width;
+
+
+  canvas.height =
+    finalCanvas.height;
+
+
+  const finalCtx =
+    canvas.getContext("2d");
+
+
+  finalCtx.drawImage(
+    finalCanvas,
+    0,
+    0
+  );
+
+
+  /* UPDATE PREVIEW */
+
+  photoResult.src =
+    canvas.toDataURL(
+      "image/jpeg",
+      1.0
+    );
+
+
+  applyCaption.innerText =
+    "✅ PESAN SUDAH DITAMBAHKAN";
+
+
+  setTimeout(
+    function() {
+
+      applyCaption.innerText =
+        "💌 TAMBAHKAN PESAN KE FOTO";
+
+    },
+    2000
+  );
+
+};
+
+
+/* =========================
    DOWNLOAD
 ========================= */
 
 download.onclick =
 function() {
+
 
   const link =
     document.createElement("a");
@@ -947,7 +1565,10 @@ function() {
 
 
   link.href =
-    photoResult.src;
+    canvas.toDataURL(
+      "image/jpeg",
+      1.0
+    );
 
 
   link.click();
@@ -956,13 +1577,15 @@ function() {
 
 
 /* =========================
-   POST INSTAGRAM STORY
+   INSTAGRAM STORY
 ========================= */
 
 share.onclick =
 async function() {
 
+
   try {
+
 
     const blob =
       await new Promise(
@@ -990,25 +1613,25 @@ async function() {
         "Ganjar-Puteri-31082026.jpg",
 
         {
-          type: "image/jpeg"
+          type:
+            "image/jpeg"
         }
 
       );
 
-
-    /* =========================
-       SHARE FILE
-    ========================= */
 
     if (
 
       navigator.canShare &&
 
       navigator.canShare({
+
         files: [file]
+
       })
 
     ) {
+
 
       await navigator.share({
 
@@ -1022,12 +1645,14 @@ async function() {
 
       });
 
+
     }
 
     else {
 
+
       alert(
-        "Perangkat ini belum mendukung fitur tersebut. Silakan download foto terlebih dahulu."
+        "Perangkat ini belum mendukung fitur berbagi foto. Silakan download foto terlebih dahulu."
       );
 
     }
@@ -1051,15 +1676,23 @@ async function() {
 retake.onclick =
 async function() {
 
+
   result.style.display =
     "none";
+
+
+  captionBox.style.display =
+    "none";
+
 
   takePhoto.style.display =
     "block";
 
+
   await startCamera();
 
 };
+
 
 </script>
 
