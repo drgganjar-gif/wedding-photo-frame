@@ -55,7 +55,7 @@ h1 {
 
   justify-content: center;
 
-  gap: 8px;
+  gap: 7px;
 
   width: 100%;
   max-width: 420px;
@@ -70,7 +70,7 @@ h1 {
 
   margin: 0;
 
-  padding: 11px 5px;
+  padding: 11px 4px;
 
   border-radius: 10px;
 
@@ -82,7 +82,7 @@ h1 {
 
   box-shadow: none;
 
-  font-size: 13px;
+  font-size: 12px;
 
   cursor: pointer;
 }
@@ -336,6 +336,15 @@ Pilih Frame
   </button>
 
 
+  <button
+    class="frame-button"
+    id="frame4Button">
+
+    ✨ Frame 4
+
+  </button>
+
+
 </div>
 
 
@@ -463,6 +472,9 @@ const frame2Button =
 const frame3Button =
   document.getElementById("frame3Button");
 
+const frame4Button =
+  document.getElementById("frame4Button");
+
 
 /* =========================
    CAMERA
@@ -507,6 +519,10 @@ function() {
     "active"
   );
 
+  frame4Button.classList.remove(
+    "active"
+  );
+
 };
 
 
@@ -536,6 +552,10 @@ function() {
     "active"
   );
 
+  frame4Button.classList.remove(
+    "active"
+  );
+
 };
 
 
@@ -562,6 +582,43 @@ function() {
   );
 
   frame2Button.classList.remove(
+    "active"
+  );
+
+  frame4Button.classList.remove(
+    "active"
+  );
+
+};
+
+
+/* =========================
+   FRAME 4
+========================= */
+
+frame4Button.onclick =
+function() {
+
+  selectedFrame =
+    "frame04.png";
+
+  frameOverlay.src =
+    selectedFrame;
+
+
+  frame4Button.classList.add(
+    "active"
+  );
+
+  frame1Button.classList.remove(
+    "active"
+  );
+
+  frame2Button.classList.remove(
+    "active"
+  );
+
+  frame3Button.classList.remove(
     "active"
   );
 
@@ -811,7 +868,7 @@ function capturePhoto() {
   function() {
 
     alert(
-      "Frame tidak ditemukan. Pastikan frame01.png, frame02.png, dan frame03.png berada satu folder dengan index.html."
+      "Frame tidak ditemukan. Pastikan frame01.png, frame02.png, frame03.png, dan frame04.png berada satu folder dengan index.html."
     );
 
   };
