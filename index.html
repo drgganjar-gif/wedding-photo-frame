@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -16,10 +17,6 @@ Ginanjar & Puteri | Wedding Photo Experience
 
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
 
 * {
   box-sizing: border-box;
@@ -220,7 +217,7 @@ body {
 
 
 /* =====================================================
-   FRAME SELECTOR
+   FRAME SELECTOR — 5 FRAME
 ===================================================== */
 
 .frame-selector {
@@ -228,9 +225,9 @@ body {
   display: grid;
 
   grid-template-columns:
-    repeat(4, 1fr);
+    repeat(5, 1fr);
 
-  gap: 8px;
+  gap: 7px;
 
 }
 
@@ -942,7 +939,40 @@ body {
 
   .frame-selector {
 
-    gap: 5px;
+    gap: 4px;
+
+  }
+
+  .frame-choice {
+
+    padding: 2px;
+
+  }
+
+  .frame-number {
+
+    bottom: 4px;
+
+    padding:
+      1px 4px;
+
+    font-size: 6px;
+
+  }
+
+  .selected-mark {
+
+    top: 4px;
+
+    right: 4px;
+
+    width: 15px;
+
+    height: 15px;
+
+    line-height: 15px;
+
+    font-size: 8px;
 
   }
 
@@ -1025,10 +1055,6 @@ body {
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header class="header">
 
 <div class="eyebrow">
@@ -1054,10 +1080,6 @@ Our Wedding Celebration
 </header>
 
 
-
-<!-- =====================================================
-     FRAME SELECTOR
-===================================================== -->
 
 <section class="frame-panel">
 
@@ -1152,25 +1174,37 @@ Pilih bingkai favoritmu
 </div>
 
 
+
+<div
+  class="frame-choice"
+  id="frame5Button">
+
+<img
+  src="frame05.png"
+  alt="Frame 5">
+
+<div class="frame-number">
+05
+</div>
+
+<div class="selected-mark">
+✓
+</div>
+
+</div>
+
+
 </div>
 
 </section>
 
 
 
-<!-- =====================================================
-     READY
-===================================================== -->
-
 <div class="ready-text">
 Ready when you are ♡
 </div>
 
 
-
-<!-- =====================================================
-     CAMERA
-===================================================== -->
 
 <div class="camera-wrapper">
 
@@ -1210,10 +1244,6 @@ Ready when you are ♡
 
 
 
-<!-- =====================================================
-     CAPTURE
-===================================================== -->
-
 <button
   id="takePhoto"
   class="main-button">
@@ -1223,10 +1253,6 @@ Ready when you are ♡
 </button>
 
 
-
-<!-- =====================================================
-     RESULT
-===================================================== -->
 
 <div id="result">
 
@@ -1246,10 +1272,6 @@ A memory to keep from our special day 🤍
   alt="Hasil foto">
 
 
-
-<!-- =====================================================
-     OPTIONAL CAPTION
-===================================================== -->
 
 <div
   class="caption-box"
@@ -1297,10 +1319,6 @@ Optional — tulis pesan untuk Ginanjar & Puteri
 
 
 
-<!-- =====================================================
-     ACTIONS
-===================================================== -->
-
 <button
   id="share"
   class="action-button primary">
@@ -1332,10 +1350,6 @@ Optional — tulis pesan untuk Ginanjar & Puteri
 
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer class="footer">
 
 
@@ -1363,6 +1377,7 @@ GINANJAR & PUTERI
 
 
 <script>
+
 
 /* =====================================================
    ELEMENTS
@@ -1424,6 +1439,9 @@ const frame3Button =
 
 const frame4Button =
   document.getElementById("frame4Button");
+
+const frame5Button =
+  document.getElementById("frame5Button");
 
 
 /* =====================================================
@@ -1525,6 +1543,17 @@ function() {
   selectFrame(
     "frame04.png",
     frame4Button
+  );
+
+};
+
+
+frame5Button.onclick =
+function() {
+
+  selectFrame(
+    "frame05.png",
+    frame5Button
   );
 
 };
@@ -2376,3 +2405,4 @@ async function() {
 </body>
 
 </html>
+```
